@@ -1,5 +1,5 @@
 html{font-size:100px;}
-body{overflow-x: hidden;width:9.6rem;}
+body{overflow: hidden;width:9.6rem;}
 
 .user{height: 5.68rem;width: 3.2rem;background: url("../images/user-bg.jpg") no-repeat;background-size: cover;  font-size: .7rem;color: red;margin-left: -3.2rem;transition: 1s all ease;}
 .user .esc{position: relative;}
