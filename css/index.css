@@ -1,0 +1,17 @@
+html{font-size:100px;}
+body{overflow-x: hidden;width:9.6rem;}
+
+.user{height: 5.68rem;width: 3.2rem;background: url("../images/user-bg.jpg") no-repeat;background-size: cover;  font-size: .7rem;color: red;margin-left: -3.2rem;transition: 1s all ease;}
+.user .esc{position: relative;}
+
+.home{ width: 3.2rem; height: 5.68rem;}
+.hand{ width: 3.2rem;height: .55rem;background: url("../images/hand.jpg"); padding-top: .05rem; transition: 1s all ease;background-size: cover;}
+.hand-l{ width: .5rem; height: .5rem; border-radius: 50%;margin-left: .25rem; box-shadow: 50%; background-image: url("../images/toux.jpg");background-size: cover;transition:1s all ease;}
+.hand-r{width: .5rem;height: .5rem; margin-right: .05rem;background: url("../images/dengp.png"); background-size: cover; transition:1s all ease;}
+
+.function{font-size: .15rem; position: absolute; right: .2rem;top: .8rem;display: none; background: #888; width: 1.2rem; }
+.function ul li{margin: .1rem;}
+.function ul li a{color: #000;}
+
+.search{ width: 3.2rem;height: .2rem;font-size: .01rem;padding:.1rem 0 ;background: #ccc;}
+.search input{margin-left: .28rem;width:2.8rem; height:.2rem; border-radius: 20px 20px 20px 20px; padding-left: .2rem; font-size: .14rem;}
