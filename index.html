@@ -2,42 +2,142 @@
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
-		<meta charset="UTF-8">
-		<title>登录</title>
-		<link rel="stylesheet" type="text/css" href="css/base.css"/>
-		<link rel="stylesheet" href="css/Login.css" />
-		<script src="js/Login.js" type="text/javascript" charset="utf-8"></script>
+		<meta charset="utf-8" />
+		<title>产品展示</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/product.css" />
+		<script src="js/product.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<header>
+		<header class="clearFix">
 			<div class="fl header-l">
-				<img class="return" src="images/esc_01.png" alt="关闭" />
+				<a href="javascript:;">
+					<img class="return" src="img/return_02.png"  />
+				</a>
 			</div>
 			<div class="fl header-r">
-				登录
+				<i class="fl"></i>
+				<input class="fl" type="text" name="search" id="search" value="" placeholder="请输入关键字"/>
+				<p class="fr"></p>
+			</div> 
+			<div class="search-btn fr">
+				搜索
 			</div>
 		</header>
-		<div class="login clearFix">
-			<div class="fl logo"></div>
-			<input type="text" class="fl" name="Phone" id="Phone" value="" placeholder="请输入手机号"/>
-			<input type="text" class="fl" name="Password" id="Password" value="" placeholder="请输入密码"/>
-			<input type="button" class="fl login-l" name="login" id="login" value="登录"/>
-			<ul class="fl">
-				<li class="fff">
-					<a href="javascript:;">马上注册</a>
+		<nav>
+			<ul>
+				<li>
+					<select>
+					  <option value ="综合">综合</option>
+					  <option value ="综合1">综合1</option>
+					  <option value ="综合2">综合2</option>
+					  <option value ="综合3">综合3</option>
+					</select>
 				</li>
-				<li class="forget">
-					<a href="javascript:;">忘记密码</a>
+				<li>
+					<select>
+					  <option value ="销量">销量</option>
+					  <option value ="销量1">销量1</option>
+					  <option value ="销量2">销量2</option>
+					  <option value ="销量3">销量3</option>
+					</select>
+				</li>
+				<li>
+					<select>
+					  <option value ="价格">价格</option>
+					  <option value ="价格1">价格1</option>
+					  <option value ="价格2">价格2</option>
+					  <option value ="价格3">价格3</option>
+					</select>
 				</li>
 			</ul>
-			<div class="clearFix agreement">
-				<span class="fl">
-					我已阅读并同意
-				</span>
-				<p class="fl">
-					《毛驴生活网用户协议》
-				</p>
-			</div>
-		</div>
+		</nav>
+		<ul class="product clearFix">
+			<li>
+				<div class="goods fl">
+					<img src="img/product01.jpg"/>
+					<div class="son">
+				    	<div class="bg"></div>
+				        <div class="text">草莓</div>
+			        </div>
+				</div>
+				<div class="introduce fl">
+			        <span class="fl">
+			        	价格:￥15元/斤
+			        </span>
+			        <p class="fr">
+			        	销量：100笔
+			        </p>
+				</div>
+			</li>
+			<li>
+				<div class="goods fl">
+					<img src="img/product01.jpg"/>
+					<div class="son">
+				    	<div class="bg"></div>
+				        <div class="text">草莓</div>
+			        </div>
+				</div>
+				<div class="introduce fl">
+			        <span class="fl">
+			        	价格:￥15元/斤
+			        </span>
+			        <p class="fr">
+			        	销量：100笔
+			        </p>
+				</div>
+			</li>
+			<li>
+				<div class="goods fl">
+					<img src="img/product01.jpg"/>
+					<div class="son">
+				    	<div class="bg"></div>
+				        <div class="text">草莓</div>
+			        </div>
+				</div>
+				<div class="introduce fl">
+			        <span class="fl">
+			        	价格:￥15元/斤
+			        </span>
+			        <p class="fr">
+			        	销量：100笔
+			        </p>
+				</div>
+			</li>
+			<li>
+				<div class="goods fl">
+					<img src="img/product01.jpg"/>
+					<div class="son">
+				    	<div class="bg"></div>
+				        <div class="text">草莓</div>
+			        </div>
+				</div>
+				<div class="introduce fl">
+			        <span class="fl">
+			        	价格:￥15元/斤
+			        </span>
+			        <p class="fr">
+			        	销量：100笔
+			        </p>
+				</div>
+			</li>
+			<li>
+				<div class="goods fl">
+					<img src="img/product01.jpg"/>
+					<div class="son">
+				    	<div class="bg"></div>
+				        <div class="text">草莓</div>
+			        </div>
+				</div>
+				<div class="introduce fl">
+			        <span class="fl">
+			        	价格:￥15元/斤
+			        </span>
+			        <p class="fr">
+			        	销量：100笔
+			        </p>
+				</div>
+			</li>
+		</ul>
 	</body>
 </html>

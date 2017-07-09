@@ -1,0 +1,135 @@
+header{
+	width: 7.5rem;
+	height: .36rem;
+	background: #a3e4ff;
+	font-size:.36rem;
+	line-height: .88rem;
+	color: #fff;
+	padding: .21rem 0;
+	position: relative;
+	box-shadow: 0 0.05rem 0.1rem #b7b6c3;
+}
+header .header-l{
+	margin-top: .02rem;
+	padding: 0 .1rem;
+	margin-right: .7rem;
+}
+header .return{
+	widows: .21rem;
+	height: .32rem;
+}
+header .header-r{
+	width: 5.12rem;
+	height: .37rem;
+	padding:0.08rem .18rem 0 .2rem;
+	background: #fff;
+	border-radius: .3rem;
+}
+header .header-r i{
+	display: block;
+	width: .28rem;
+	height: .27rem;
+	background: url(../img/search_01.png) no-repeat;
+	background-size: .28rem .27rem;
+	margin-right: .16rem;
+}
+header .header-r input{
+	border: none;
+	border-left: .02rem solid #acacac;
+	width: 4.24rem;
+	height: .3rem;
+	font-size: .24rem;
+	padding-left: .16rem;
+}
+input::-webkit-input-placeholder {
+	color: #acacac;
+}
+header .header-r p{
+	width: .17rem;
+	height: .24rem;
+	display: block;
+	background: url(../img/voice_01.png) no-repeat;
+	background-size: .17rem .24rem;
+	margin-top: .02rem;
+}
+header .search-btn{
+	display: block;
+	height: .26rem;
+	line-height: .26rem;
+	font-size: .26rem;
+	color: #f93;
+	padding-top: .1rem;
+	padding-right: .1rem;
+}
+nav{
+	width: 7.5rem;
+	height: .64rem;
+	padding-top: .25rem;
+	padding-bottom: .39rem;
+	margin-top: -0.3rem;
+	position: relative;
+}
+nav ul{
+	width: 6.05rem;
+	height: .9rem;
+	padding-left: 1.45rem;
+}
+nav ul li{
+	width: .85rem;
+	line-height: .26rem;
+	float: left;
+	margin-right: 1rem;
+}
+nav ul li select{
+	width: .85rem;
+	font-size: .26rem;
+	border: none;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	background: url(../img/drop01.png) no-repeat .65rem .14rem;
+	background-size: .19rem .11rem;
+}
+.product li{
+	width: 3.6rem;
+	height: 4.35rem;
+	float: left;
+	margin-left: .1rem;
+	position: relative;
+}
+.product li .goods{
+	width: 3.6rem;
+}
+.product li img{
+	width: 3.6rem;
+	height: 3.6rem;
+}
+.product li .son{ 
+	width:100%; 
+	position:absolute; 
+	left:0; 
+	bottom: .76rem;
+}
+.product li .bg{ 
+	width:100%; 
+	height:100%; 
+	position:absolute; 
+	left:0; 
+	bottom:0; 
+	background:#fff; 
+	opacity:0.4;
+}
+.product li .text{ 
+	text-align: center;
+	color:#000; 
+	font-size: .24rem;
+	position:relative;
+	font-weight: bolder;
+}
+.product li .introduce{
+	width: 3.6rem;
+	font-size: .24rem;
+}
+.product li .introduce p{
+	display: block;
+}
