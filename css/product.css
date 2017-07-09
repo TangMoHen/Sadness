@@ -35,7 +35,6 @@ header .header-r i{
 }
 header .header-r input{
 	border: none;
-	border-left: .02rem solid #acacac;
 	width: 4.24rem;
 	height: .3rem;
 	font-size: .24rem;
