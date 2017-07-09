@@ -1,35 +1,32 @@
-@charset "utf-8";
-/* CSS Document */
-
 *{
-	margin:0;					/*通配符清除间距*/
-	padding:0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: "微软雅黑";
 }
-a{ 
-	text-decoration:none;		/*清除所有 a 标签的下划线*/
-}
-li{
-	list-style:none;			/*清除所有 li 的前缀点*/	
+a{
+	text-decoration: none;
 }
 img{
-	display:block;				/*将 img 变成块元素 清除所有img的下间距*/
+	display: block;
 }
 .fl{
-	float:left;					/*左浮动*/
+	float: left;
 }
 .fr{
-	float:right;				/*右浮动*/
+	float: right;
 }
-.clearFix:after{				
+.clearFix:after{
 	content:'';
-	display:block;
-	clear:both;
-}								
-.clearFix{						/*终级清浮动的办法  将clearFix给浮动的父级*/
-	zoom:1;
+	display: block;
+	clear: both;
 }
-.wraper{						/*版心*/
-	width:930px;
-	margin:0 auto;	
+.clearFix{
+	zoom: 1;
 }
-input,select,textarea{ outline:none;}
+input,select,textarea{
+	outline: none;
+}
+html{
+	font-size: 100px;
+}
