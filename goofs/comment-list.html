@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+    <script src="../js/jquery-2.1.4.min.js"></script>
+</head>
+<body style="background-color: #e5e5e5">
+<div class="text-center" style="height: 54px;background-color: #eeeeee;position: relative">
+    <span class="glyphicon glyphicon-chevron-left"  style="font-size: 26px;position: absolute;left: 10px;line-height: 54px;color: #000000" onclick="javascript:history.back(-1);"></span>
+    <span style="line-height: 54px;font-size: 20px;color: #000000">评论列表</span>
+</div>
+<div class="comment-list" id="comment-list">
+    <!--<div class="keywords">
+        <i>全部评价</i>
+        <span>热卖水果</span>
+        <span>精选肉类</span>
+        <span>精类</span>
+        <span>精选肉类</span>
+        <span>精类</span><span>精选类</span>
+        <span>精选肉类</span>
+        <span>精类</span>
+        <span>精选肉类</span>
+    </div>-->
+    <ul>
+        <li v-for="item in commentList">
+            <div class="comment container">
+                <div class="user" v-for="row in userList" v-if="row.user_id == item.user_id">
+                    <div class="float-left tu">
+                        <img :src="row.user_info_headPortrait" alt="" class="img-responsive img-circle">
+                    </div>
+                    <div class="float-left">
+                        <span>{{ row.user_info_nick }}</span>
+                    </div>
+                    <div class="float-right">
+                        <span>{{ new Date(item.commodity_comment_createtime).toLocaleString() }}</span>
+                    </div>
+                </div>
+                <div>
+                    {{ item.commodity_comment_body }}
+                </div>
+                <input id="hidden" type="hidden" :value="item.commodity_comment_score">
+                <div class="star" id="star">
+                    <div class="float-left">
+                        <ul>
+                            <li v-for="n in item.commodity_comment_score" class="glyphicon glyphicon-star"></li>
+                        </ul>
+                    </div>
+                    <div class="float-right">
+                        其他备注
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/comment-list.js"></script>
+</body>
+</html>

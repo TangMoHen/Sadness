@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品展示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div class="goods">
+    <div class="sousuo row">
+        <div class="col-xs-2">
+            <a href="../index.html">
+                <span class="glyphicon glyphicon-chevron-left"  style="left: 0;font-size: 30px;color: #000000"></span>
+            </a>
+        </div>
+        <div class="col-xs-8">
+            <div class="has-feedback">
+                <div>
+                    <span class="glyphicon glyphicon-search form-control-feedback" style="left: 0px"></span>
+                    <input type="text" name="username" size="28" placeholder="请输入关键字" accesskey>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <span style="line-height: 76px;font-size: 16px;">搜索</span>
+        </div>
+    </div>
+<div class="containers">
+    <div class="my-container">
+        <div class="text-center row">
+            <div class="col-xs-4">
+                    <span>综合▼</span>
+            </div>
+            <div class="col-xs-4">
+                    <span>销量▼</span>
+            </div>
+            <div class="col-xs-4">
+                    <span>价格▼</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty1'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty1" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty1'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty2'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty2" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty2'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty3'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty3" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty3'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty4'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty4" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty4'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty5'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty5" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty5'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <img src="../img/tuijian1.jpg" class="img-responsive">
+            <span>商品价格</span>
+            <div class="float-right">
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty6'); var qty = qty_el. value; if( ! isNaN( qty ) &amp;&amp; qty > 0 ) qty_el.value --;return false;">-</button>
+                <!--<button type="button" class="btn btn-default">2</button>-->
+                <input id="qty6" type="text" name="shuiguo" value="0" readonly>
+                <button type="button" class="my-btn" onclick= "var qty_el = document.getElementById ('qty6'); var qty = qty_el. value; if( ! isNaN( qty )) qty_el. value++; return false; ">+</button>
+            </div>
+            <div class="row jiage">
+                <span class="col-xs-5 text-left padding">9.9/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：522228笔</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

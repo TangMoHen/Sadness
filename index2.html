@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>毛驴生活网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+<div id="loading"></div>
+<div id="app" style="margin-bottom: 80px">
+    <div class="sousuo row" id="sousuo">
+        <div class="col-xs-2" style="padding: 0">
+            <div>
+                <img src="img/logo-36.png" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-xs-8 input" style="padding: 0">
+            <div class="has-feedback">
+                <div>
+                    <span class="glyphicon" style="left: 0px"><img src="img/搜索36.png" style="width: 16px;height: 16px;position:absolute;top: -6px;"></span>
+                    <a href="search.html" style="font-size: 14px">
+                        <input type="text" name="username" placeholder="请输入关键字" style="font-size: inherit;border: 0" onclick="sousuo()">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2" style="padding:0;">
+            <a href="message.html">
+                <img src="img/消息-36.png">
+            </a>
+        </div>
+    </div>
+        <div class="swiper-container"style="width: 100%; height: 160px">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"  v-for="item in img">
+                	<img :src="item.image_address" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="width-100 my-b" >
+            <div class="my-width-25 text-center my-b" v-for="(cla,index ) in classes">
+                <a :href="'goods/class1.html?id='+cla.commodity_category_id">
+                    <img :src="cla.commodity_category_img" class="img-responsive img-circle my-img">
+                    <div>{{ cla.commodity_category_name }}</div>
+                </a>
+            </div>
+            <div class="my-width-25 text-center">
+                <a href="goods/class1.html">
+                <img src="img/更多72.png" style="width: 53px;height: 48px">
+                <div>更多</div>
+                </a>
+            </div>
+        </div>
+    <p style="border-bottom: 1px solid #7e7c7d;width: 96%;position: relative;left: 10px"></p>
+        <div class="activity">
+            <div class="text-left" style="width: 100%;padding: 5px 10px">
+                <span style="width: 10%;"><img src="img/活动中心-36.png" ></span>
+                <span style="width: 20%; font-size: 16px;padding-left: 10px">活动中心</span>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 padding">
+                    <img src="img/活动中心2.jpg" class="img-responsive">
+                </div>
+                <div class="col-xs-6 padding">
+                    <img src="img/活动中心1.jpg" class="img-responsive">
+                    <img src="img/活动中心3.jpg" class="img-responsive">
+                </div>
+            </div>
+        </div>
+        <div class="item tuijian"  v-if="tuijian1 !== 0">
+            <div class="text-left" style="width: 100%;padding: 5px 10px">
+                <span style="width: 10%;"><img src="img/推荐-36.png" ></span>
+                <span style="width: 20%; font-size: 16px;padding-left: 10px">推荐</span>
+            </div>
+            <ul class="row">
+                <li class="col-xs-6"  v-for="row in tuijian" >
+                    <div style="position: relative">
+                        <a :href="'goofs/goods-details.html?id='+row.commodity_id"><img :src="row.commodity_coverimg" class="img-responsive" ></a>
+                        <h5 class="text-center" style="position: absolute;bottom: 0;width: 100%">{{ row.commodity_name }}</h5>
+                    </div>
+                        <!--<div class="float-right">-->
+                        <!--</div>-->
+                        <div class="row jiage">
+                            <!--<span class="col-xs-3  padding"></span>-->
+                            <span class=" padding"><span style="color:#ff9837;font-size: 18px;float: left">¥</span>{{ row.commodity_imgprice | currency }}元</span>
+                            <span class=" padding" style="float: right">销售量:{{row.commodity_sales}}</span>
+                        </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <ul class="nav">
+                <li style="width: 25%; ">
+                    <a class="text-center" id="active" style="color:#ff9837">
+                        <img src="img/首页-选中48.png" class="img-responsive" style="width:36px;height: 36px">
+                        首页
+                    </a>
+                </li>
+                <li style="width: 25%">
+                    <a href="./special/special.html" class="text-center">
+                        <img src="img/专区-未选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                        特供专区
+                    </a>
+                </li>
+                <li style="width: 25%" style="position: relative">
+                    <a href="./shopping/shopping-cart.html" class="text-center">
+                        <img src="img/订单-未选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                        购物车
+                    </a>
+                </li>
+                <li style="width: 25%">
+                    <a href="./userlogin/wode.html" class="text-center">
+                        <img src="img/我的-未选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                        我的
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

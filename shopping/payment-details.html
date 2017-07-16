@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>付款详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div id="loading"></div>
+<!--<div class="text-center" style="height: 54px;background-color: #a3e4ff;position: relative">-->
+        <!--<span class="glyphicon glyphicon-chevron-left"  style="font-size: 26px;position: absolute;left: 10px;line-height: 54px;color: #ff9837;" onclick="javascript:history.back(-1);"></span>-->
+    <!--<span style="line-height: 54px;font-size: 20px;color: #ffffff">付款详情</span>-->
+<!--</div>-->
+<div id="address">
+    <div class="fukuanxiangqing" v-if="names !== null">
+        <div v-if="dele.length !==0" style="width: 100%" >
+
+            <div style="width: 14%;height:80px;float: left;line-height: 120px;text-align: center;">
+                <img src="../img/位置36.png" >
+            </div>
+            <div class="shouhuodizhi container" style="position: relative;width: 90%" v-for="address in dele" v-if="address.delivery_isDefault === 1">
+                <h4 style="position: relative;left: -46px;font-size: 15px">收货人：<span>{{ address.delivery_consignee }}&nbsp;&nbsp;</span>（<span>{{ address.delivery_phone}}</span>）</h4>
+                <div>
+                    <h5 >
+                        <span>{{ address.store_address_shi }}</span>
+                        <span>{{ address.store_address_qu }}</span>
+                        <span>{{ address.store_address_info }}</span>
+                    </h5>
+                    <h5 style="width: 90%">
+                        <p>{{ address.store_address_info }}：{{ address.store_name }}</p>
+                          <p style="margin-left: 22px">{{ address.store_master_name }}：{{ address.store_master_phone }}</p>
+                    </h5>
+                </div>
+                <input id="d_id" type="hidden" :value="address.delivery_id">
+                <span class="glyphicon"  style="font-size: 36px;position: absolute;right: 10px;line-height: 70px;color: #000000">
+                    <img src="../img/箭头36.png" style="margin-top: 20px">
+                </span>
+            </div>
+        </div>
+
+        <button v-else type="button" class="btn btn-default btn-lg btn-block" style="width: 90%;margin-left: 5%;border: 1px solid #ff9837;color: #ff9837;" id="tianjia">添加收货地址</button>
+        <ul id="tab" style="border-top: 1px solid #b3b3b3;margin: 10px;border-bottom: 1px solid #b3b3b3">
+            <li v-for="item in gyms">
+                <div class="row" style="padding: 0">
+                    <!--<div class="width-10 text-center" style="line-height: 100px;"></div>-->
+                    <div class="width-30" style="padding: 10px 0">
+                        <img :src="item.commodity_coverimg" alt="" class="img-responsive" style="width: 100px;" />
+                    </div>
+                    <div class="width-60">
+                        <h4 style="margin-top: 10px;">{{ item.commodity_name }}</h4>
+                        <h5 style="margin: 0;color: #ff9837">单价：<span class="price">{{ item.commodity_imgprice }}</span>元</h5>
+                        <h5 style="margin: 0;padding-top: 5px;color: #ff9837" class="text-left">总价：<span>{{ '&yen;' + accMul(item.commodity_imgprice,item.shoppingCart_quantity) }}</span></h5>
+                        <div style="padding-top: 5px">
+                            <span>数量</span>
+                            <span class="float-right" style="border: 1px solid #a0a0a0;border-radius: 8px">
+                                <input class="min" name="" type="button" value="-" @click="min(item)" :disabled="item.shoppingCart_quantity<2" style="border:none;border-right: 1px solid #a0a0a0"/>
+                                <input class="text_box" name="sum" type="text" :value="item.shoppingCart_quantity" style="border: 0;width: 30px"readonly />
+                                <input class="add" name="" type="button" value="+" @click="greet(item)"  :disabled="item.shoppingCart_quantity>=item.commodity_limitbuy" style="border:none;border-left: 1px solid #a0a0a0"/>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="text-right">
+            <h4>合计金额：&yen;<i id="total">{{ sum }}</i>元</h4>
+        </div>
+        <div class="text-center">
+            <button id="add-order">生成订单</button>
+            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal" style="width:200px;border-radius: 20px">确认支付</button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" style="position: fixed;bottom: 0;margin: 0;width: 100%;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel">
+                                付款详情
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="weui-cells weui-cells_radio">
+                                <label class="weui-cell weui-check__label" for="x11">
+                                    <div class="weui-cell__bd">
+                                        <img src="../img/微信3.png">
+                                        <p>微信支付</p>
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                        <input type="radio" class="weui-check" name="radio1" id="x11" checked="checked"/>
+                                        <span class="weui-icon-checked"></span>
+                                    </div>
+                                </label>
+                                <label class="weui-cell weui-check__label" for="x12">
+                                    <div class="weui-cell__bd">
+                                        <img src="../img/支付宝3.png">
+                                        <p>支付宝支付</p>
+                                    </div>
+                                    <div class="weui-cell__ft">
+                                        <input type="radio" name="radio1" class="weui-check" id="x12"/>
+                                        <span class="weui-icon-checked"></span>
+                                    </div>
+                                </label>
+                                <label class="weui-cell weui-check__label">
+                                    <div class="weui-cell__bd">
+                                        <p style="text-align: right">实付款：<i id="total1">0</i>元</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+                            <!--</button>-->
+                            <button type="button" class="btn btn-warning btn-lg btn-block">
+                                确认付款
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+    </div>
+    <div v-else class="text-center" style="padding-top: 40%">
+        <h1>空空如也</h1>
+    </div>
+</div>
+
+<!--<script src="../js/jquery-1.8.3.min.js"></script>-->
+<!--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/payment-details.js"></script>
+<script>
+    $("#tianjia").click(function () {
+        window.location.href="../userlogin/tianjiashouhuodizhi.html"
+    })
+</script>
+</body>
+</html>

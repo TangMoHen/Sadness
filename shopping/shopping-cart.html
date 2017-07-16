@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>购物车</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div class="text-center" style="height: 30px;background-color: #a3e4ff;position: relative">
+    <span style="line-height: 30px;font-size: 20px;color: #ffffff"></span>
+    <span id="bianji" style="position: absolute;top: 0;right: 10px;line-height: 26px;color: #ffffff;border: 1px solid #FFFFFF;color: #ff7800;border-radius: 10px;width: 60px;height: 28px" onclick="bianji()">编辑</span>
+    <span id="wancheng" style="display: none;position: absolute;right: 10px;top: 0;line-height: 26px;color: #ffffff;border: 1px solid #FFFFFF;color: #ff7800;border-radius: 10px;width: 60px;height: 28px" onclick="wancheng()">完成</span>
+</div>
+<div class="shopping" id="tab">
+    <div v-if="goods.length !==0">
+        <ul>
+            <li v-for="item in goods" v-if="item.length !==0">
+                <div class="row" style="position: relative">
+                    <div class="width-10 text-center" style="line-height: 100px;">
+                        <input name="quanxian" :value="item.shoppingCart_id" class="check-one check" v-model="item.isChecked" type="checkbox"/>
+                    </div>
+                    <div class="width-30">
+                        <img :src="item.commodity_coverimg" alt="" class="img-responsive" style="width: 100px;" />
+                    </div>
+                    <div class="width-60">
+                        <h4>{{ item.commodity_name }}</h4>
+                        <h5>单价：<span class="price">{{ item.commodity_imgprice }}</span>元</h5>
+                        <div>
+                            <span>数量</span>
+                            <span class="float-right"  style="border: 1px solid #959595;width: 80px;height: 25px;border-radius: 8px">
+                                <input class="min" name="" type="button" value="-" @click="min(item)" :disabled="item.shoppingCart_quantity<2" style="border: none;border-right: 1px solid #959595;width: 23px;height: 24px"/>
+                                <input class="text_box" name="num" type="text" :value="item.shoppingCart_quantity" style="border: 0;width: 32px;height: 24px" readonly />
+                                <input class="add" name="" type="button" value="+" @click="greet(item)" :disabled="item.shoppingCart_quantity>=item.commodity_limitbuy" style="border: none;border-left: 1px solid #959595;width: 23px;height: 24px"/>
+                            </span>
+                        </div>
+                        <span class="float-right" style="position: absolute; bottom: 0;right: 0">{{ '&yen;' + accMul(item.commodity_imgprice, item.shoppingCart_quantity) }}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="footer1" id="footer">
+            <div class="navbar navbar-default navbar-fixed-bottom" style="font-size: 16px;line-height: 50px;bottom: 74px" role="navigation">
+                <div class="col-xs-3"><input class="check-all check" type="checkbox" v-model="allCheckedStatus" @click="allChecked" id="quanxuan"/>全选</div>
+                <div class="col-xs-6 text-center">
+                    <span id="heji">合计：{{ sum }}元 </span>
+                </div>
+                <div class="col-xs-3">
+                    <!--<button type="button" class="btn btn-warning" id="jisuan" style="margin: 8px 0"><a href="payment-details.html">结算</a></button>-->
+                    <button type="button" class="btn btn-warning" id="jisuan" style="margin: 8px 0" onclick="jisuan()">结算</button>
+                    <button type="button" class="btn btn-warning" id="shanchu" style="display: none;margin: 8px 0" onclick="shanchu()">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else class="shopping-null text-center" style="margin-top: 80px">
+        <img src="../img/头像.png" style="height: 120px;width: 120px;display: inline-block">
+        <div class="text-center">
+            <h5>您的购物车还是空的哦......</h5>
+            <h5>快去挑选商品吧......</h5>
+            <a href="../goods/class1.html">
+                <button type="button" class="btn" style="background: #ff9933;color: #FFFFFF;padding: 3px 36px">添加</button>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <ul class="nav">
+            <li style="width: 25%">
+                <a href="../index2.html" class="text-center">
+                    <img src="../img/首页-未选中48.png" class="img-responsive" style="width: 36px;height: 36px">
+                    首页
+                </a>
+            </li>
+            <li style="width: 25%">
+                <a href="../special/special.html" class="text-center">
+                    <img src="../img/专区-未选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                    特供专区
+                </a>
+            </li>
+            <li style="width: 25%" style="position: relative" id="active">
+                <a class="text-center" style="color:#ff9837">
+                    <img src="../img/订单-选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                    购物车
+                </a>
+            </li>
+            <li style="width: 25%">
+                <a href="../userlogin/wode.html" class="text-center">
+                    <img src="../img/我的-未选中48.png" class="img-responsive"  style="width: 36px;height: 36px">
+                    我的
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="loading"></div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/shopping-cart.js"></script>
+<script>
+</script>
+</body>
+</html>

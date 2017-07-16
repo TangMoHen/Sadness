@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jq22.css">
+    <link rel="stylesheet" href="../css/code.css">
+    <link rel="stylesheet" href="../css/css1.css">
+</head>
+<body>
+<!--<div id="loading"></div>-->
+<div class="text-center" style="height: 54px;background-color: #eeeeee;position: relative">
+    <span class="glyphicon glyphicon-chevron-left"  style="font-size: 20px;position: absolute;left: 10px;line-height: 54px" onclick="javascript:history.back(-1)";></span>
+    <span style="line-height: 54px;font-size: 20px;">修改密码</span>
+    <span style="font-size: 16px;position: absolute;right: 10px;line-height: 54px">确定</span>
+</div>
+<div id="login" style="background-color: transparent">
+    <div class="wrapper">
+        <!--<div class="login text-left">-->
+                <form action="#" method="post" class="container offset1 loginform" method="post" id="form1">
+                <div class="pad">
+                    <input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="password" class="control-label 	glyphicon glyphicon-lock"></label>
+                            <input id="password" type="password" name="password" placeholder="请输入旧密码" tabindex="2" class="form-control input-medium">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="password" class="control-label 	glyphicon glyphicon-lock"></label>
+                            <input id="password1" type="password" name="password" placeholder="请输入新密码" tabindex="2" class="form-control input-medium"  validate = '[{"type":"regex","reg":"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$","msg":"密码过于简单！"}]' onkeyup="pwStrength(this.value)">
+                            <ul class="pass_set">
+                                <li id="strength_L">弱</li>
+                                <li id="strength_M">中</li>
+                                <li id="strength_H">强</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="password" class="control-label 	glyphicon glyphicon-lock"></label>
+                            <input id="password2" type="password" name="password" placeholder="请确定密码" tabindex="2" class="form-control input-medium" validate='[{"type":"regex","reg":"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$","msg":"确认密码不一致！"},{"type":"equalTo","target":"#password","msg":"确认密码不一致"}]'>
+                        </div>
+                    </div>
+                </div>
+                <button id="ok" type="submit" tabindex="4" class="btn btn-success" style="width: 100%;height: 60px">完成</button></div>
+            </form>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/jquery.cookie.js"></script>
+<script src="../js/xiugaimima.js"></script>
+</body>
+</html>

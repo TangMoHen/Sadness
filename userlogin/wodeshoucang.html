@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jq22.css">
+    <link rel="stylesheet" href="../css/css1.css">
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+</style>
+</head>
+<body style="background-color: #e5e5e5">
+<!--<div class="text-center" style="height: 54px;background-color: #5ca556;position: relative">-->
+    <!--<span class="glyphicon glyphicon-chevron-left"  style="font-size: 20px;position: absolute;left: 10px;line-height: 54px" onclick="javascript:history.back(-1)";></span>-->
+    <!--<span style="line-height: 54px;font-size: 20px;">我的收藏</span>-->
+<!--</div>-->
+<div id="pc">
+    <div  style="border-bottom: 1px #000 solid;padding-bottom: 20px;overflow: hidden;" v-for="item in gyms">
+        <div class="col-xs-4">
+            <div>
+                <img :src="item.commodity_coverimg" alt="" class="img-responsive" style="position: absolute; padding: 10px 10px 10px 30px; width: 150px;height: 150px">
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <br><br><br>
+            <h5 class="modal-title text-left"style="font-size: 16px;position: relative;top: 34px;">{{ item.commodity_name }}</h5>
+            <h5 class="modal-title text-left my-red"style="font-size: 16px;position: relative;top: 38px;">&yen;<span>{{ item.commodity_imgprice }}</span>元</h5>
+        </div>
+        <div>
+            <span class="glyphicon text-right" style="font-size: 24px;width: 70%;" @click="sss(item.commodity_id)"><p style="font-size: 14px ;position: relative;left: 16px"><img src="../img/收藏星36灰.png" style="height: 30px;width: 30px;position: relative;bottom: 24px;left: 43px">取消收藏</p></span>
+
+            <input type="hidden" :value="item.commodity_id">
+            <span class=" text-left" style="padding-left: 14px;font-size: 14px;position: relative;top: 1px;" v-if="item.commodity_status ==1"><img src="../img/收藏购物车36.png" style="height: 30px;width: 30px;position: relative;bottom: 24px;left: 27px">购买</span>
+            <span class="text-left" style="padding-left: 14px;font-size: 14px;width: 28%;position: relative;top: 2px;right: 4px" v-else><img src="../img/收藏购物车36灰.png" style="height: 30px;width: 30px;position: relative;left: 34px;bottom: 24px">已下架</span>
+
+        </div>
+
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/wodeshouchang.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body style="background-color: #E5E5E5">
+<div id="loading"></div>
+<div id="goods">
+    <div class="shangpinxiangqing" v-if="proId !== undefined">
+        <img :src="goods.commodity_coverimg" alt="" class="img-responsive" style="position: relative;width: 100%;">
+        <div style="width: 30px;height: 30px;background-color: rgba(0,0,0,.3);position: absolute;top: 10px;left: 10px;border-radius: 50%">
+            <div class="text-center" style="width: 100%">
+                <span class="glyphicon" style="line-height: 28px;color: #fff;font-size: 18px" onclick="javascript:history.back(-1);">
+                    <img src="../img/返回键36.png" style="width: 16px;height: 22px;bottom: 4px;right: 1px;position: relative">
+                </span>
+            </div>
+        </div>
+        <div style="width: 30px;height: 30px;background-color: rgba(0,0,0,.3);position: absolute;top: 10px;right: 10px;border-radius: 50%">
+            <div class="text-center" style="width: 100%">
+                <span class="glyphicon" style="line-height: 28px">
+                    <img src="../img/分享36.png" style="width: 20px;height: 20px;position: relative;top: -3px">
+                </span>
+            </div>
+        </div>
+        <div class="">
+            <div class="name">
+                <h4>{{ goods.commodity_name }}</h4>
+                <h5 class="price"><span>{{ goods.commodity_imgprice | currency }}</span>元/<span>kg</span></h5>
+                <!--<h5 class="cost">原价<span>19.9</span>元/<span>kg</span></h5>-->
+                <div class="note">
+                    <span class="span-left">备注：{{ goods.commodity_description_word }}</span>
+                    <span class="span-right">已售出<i>{{ goods.commodity_sales }}</i>笔</span>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-xs-2 text-right date">
+                    <div style="line-height: 52px">
+                        <img src="../img/闹钟48.png" alt="">
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <h6>上午9：00之前下单，当日下午5点送达</h6>
+                    <h6>上午9：00之前下单，当日下午5点送达</h6>
+                </div>
+            </div>
+            <div class="state">
+                <div class="text-left">
+                    <img src="../img/勾选图36.png" alt="">
+                    免费运
+                </div>
+                <div class="text-center">
+                    <img src="../img/勾选图36.png" alt="">
+                    提前预定
+                </div>
+                <div class="text-right">
+                    <img src="../img/勾选图36.png" alt="">
+                    配送到网点自提
+                </div>
+            </div>
+            <div class="comment" v-if="comment !== undefined">
+                <h4 class="text-center">商品评价</h4>
+                <span class="haopinglv">好评率<i class="my-green">99</i>%</span>
+                <div class="user" v-if="user !== undefined">
+                    <div class="float-left tu">
+                        <img :src="user.user_info_headPortrait" alt="" class="img-responsive img-circle">
+                    </div>
+                    <div class="float-left">
+                        <span>{{ user.user_info_nick }}</span>
+                    </div>
+                    <div class="float-right">
+                        <span>{{ new Date(user.user_info_createTime).toLocaleString() }}</span>
+                    </div>
+                </div>
+                <!--<div>-->
+                    {{ comment.commodity_comment_body  }}
+                <!--</div>-->
+                <div class="star" id="star">
+                    <div class="float-left">
+                        <ul>
+                            <li class="glyphicon glyphicon-star"></li>
+                            <li class="glyphicon glyphicon-star"></li>
+                            <li class="glyphicon glyphicon-star"></li>
+                            <li class="glyphicon glyphicon-star"></li>
+                            <li class="glyphicon glyphicon-star"></li>
+                        </ul>
+                    </div>
+                    <div class="float-right">
+                        其他备注
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="btn btn-success">
+                        <a style="color: #ffffff" :href="'comment-list.html?commodityId='+goods.commodity_id">
+                            查看更多评论
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment" v-else>
+                <h4 class="text-center">商品评价</h4>
+                <h5 class="text-center">此商品暂无评论</h5>
+            </div>
+            <div class="introduce">
+                <h4 class="text-center">商品详情</h4>
+                <div v-for="image in img">
+                    <img :src="image.image_address" alt="" class="img-responsive">
+                </div>
+            </div>
+        </div>
+        <div class="footer1">
+            <div style="width: 20%;float: left;" class="text-center">
+                <a href="tel:15028864581">
+                    <img src="../img/客服3.png">
+                    <p>客服</p>
+                </a>
+            </div>
+            <div style="width: 20%;float: left;" class="text-center" id="div1" onclick="btn()" v-show="proId == show.commodity_id">
+                <img src="../img/收藏3.png" class="wujiang_pic_size" >
+                <p>已收藏</p>
+            </div>
+            <div style="width: 20%;float: left;display: none" class="text-center" id="div2" onclick="btn1()" v-show="proId !== show.commodity_id">
+                <img src="../img/收藏星36.png" class="wujiang_pic_size">
+                <p>收藏</p>
+            </div>
+            <div style="width: 30%;float: left;">
+                <button class="btn btn-block" data-toggle="modal" data-target="#myModal" style="background: #ff7800;color: #FFFFFF">加入购物车</button>
+            </div>
+            <div style="width: 30%;float: left;">
+                <button class="btn btn-block"  data-toggle="modal" data-target="#myModal2" style="background: #d8271c;color: #FFFFFF">立即购买</button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="position: fixed;bottom: 0;margin: 0;width: 100%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <img src="../img/关闭36.png" style="width: 26px;height: 26px">
+                        </button>
+                        <div class="col-xs-4" style="position: relative">
+                            <div style="width: 100%;height: 60px">
+                                <img :src="goods.commodity_coverimg" alt="" class="img-responsive" style="position: absolute;width: 85px;top: -30px;">
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <h5 class="modal-title text-left my-red" id="myModalLabel2"><span style="font-size: 24px">&yen;</span><span>{{ goods.commodity_imgprice | currency }}</span>元</h5>
+                            <h5 class="modal-title text-left" id="myModalLabel12">{{ goods.commodity_name }}</h5>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="weui-cells weui-cells_radio">
+                            <div>
+                                <span>购买数量：</span>
+                                <span class="float-right" style="border: 1px solid #959595;width: 80px;height: 25px">
+                                    <input type="hidden" id="shangpin2" :value="goods.commodity_id">
+                                    <input type="hidden" class="ddd" value="5">
+                                    <input class="min" name="" type="button" value="-" style="border: none;border-right: 1px solid #959595;width: 23px;height: 24px"/>
+                                    <input style="width: 30px;border: 0" id="num2" class="text_box" name="" type="text" value="1" readonly style="border: 0;width: 32px;height: 24px" />
+                                    <input class="add" name="" type="button" value="+" style="border: none;border-left: 1px solid #959595;width: 23px;height: 24px"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+                        <!--</button>-->
+                        <button type="button" class="btn  btn-lg btn-block" id="ok2"  data-dismiss="modal" aria-hidden="true" style="background: #ff7800 ;color: #FFFFFF;width: 40%;margin-left: 30%;border-radius: 18px">
+                            确认
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="position: fixed;bottom: 0;margin: 0;width: 100%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <img src="../img/关闭36.png" style="width: 26px;height: 26px">
+                        </button>
+                        <div class="col-xs-4" style="position: relative">
+                            <div style="width: 100%;height: 60px">
+                                <img :src="goods.commodity_coverimg" alt="" class="img-responsive" style="position: absolute;width: 85px;top: -30px;">
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <h5 class="modal-title text-left my-red" id="myModalLabel"><span style="font-size: 24px">&yen;</span><span>{{ goods.commodity_imgprice | currency }}</span>元</h5>
+                            <h5 class="modal-title text-left" id="myModalLabel1">{{ goods.commodity_name }}</h5>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="weui-cells weui-cells_radio">
+                            <div>
+                                <span>购买数量：</span>
+                                <span class="float-right" style="border: 1px solid #959595;width: 80px;height: 25px">
+                                    <input type="hidden" id="shangpin" :value="goods.commodity_id">
+                                     <input class="min" name="" type="button" value="-" style="border: none;border-right: 1px solid #959595;width: 23px;height: 24px"/>
+                                    <input style="width: 30px;border: 0" id="num" class="text_box" name="" type="text" value="1" readonly style="border: 0;width: 32px;height: 24px" />
+                                     <input class="add" name="" type="button" value="+" style="border: none;border-left: 1px solid #959595;width: 23px;height: 24px"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+                        <!--</button>-->
+                        <button type="button" class="btn  btn-lg btn-block" id="ok"  data-dismiss="modal" aria-hidden="true" style="background: #ff7800 ;color: #FFFFFF;width: 40%;margin-left: 30%;border-radius: 18px">
+                            确认
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <a href="../shopping/shopping-cart.html" class="" style="position: fixed;top: 80%;left: 20px;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;line-height: 30px;text-align: center;font-size: 20px;color: #FFFFFF">
+            <img src="../img/shopping-cart.png" alt=""  style="width: 20px;height: 20px">
+        </a>
+    </div>
+    <div v-else class="text-center">
+        <h1 style="padding-top: 50%">空空如也</h1>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/goods-details.js"></script>
+</body>
+</html>

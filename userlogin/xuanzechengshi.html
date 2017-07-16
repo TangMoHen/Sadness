@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/jq22.css">
+    <link rel="stylesheet" href="../css/code.css">
+    <link rel="stylesheet" href="../css/css1.css">
+</head>
+<body>
+<div id="loading"></div>
+<div id="login" style="background-color: transparent">
+    <div class="wrapper">
+        <!--<div class="login text-left">-->
+        <div action="#" method="post" class="container offset1 loginform" method="post" id="form1" style="top: 0;margin-top: 0">
+            <div class="pad" style="padding: 0">
+                <input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">
+
+                <div class="control-group" v-for="item in gyms">
+                    <div class="controls" style="border-bottom: 1px solid #434343;margin: 0">
+                        <div style="width: 100%;height: 40px; color:#5ca556;padding-top: 10px;">石家庄市{{item.qu}}</div>
+                        <span style="font-size: 22px;position: absolute;right: 16px;line-height: 54px;top: -5px" class="glyphicon glyphicon-chevron-right"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/jquery.cookie.js"></script>
+<script src="../js/xuanzechengshi.js"></script>
+</body>
+</html>
