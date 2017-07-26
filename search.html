@@ -1,68 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>搜索</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/css.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+    <title>搜索商品</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/search.css"/>
+    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/search.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<!--<div id="loading"></div>-->
-<div id="sousuo1">
-    <div class="sousuo row" style="background: #a3e4ff">
-        <div class="col-xs-2 text-center">
-            <span  style="left: 0px;font-size: 30px" onclick="javascript:history.back(-1);"><img src="img/返回36.png" style="width: 20px;height: 26px;position: relative;top: 4px"></span>
-        </div>
-        <div class="col-xs-8" style="padding: 0">
-            <div class="has-feedback">
-                <div>
-                    <span class="glyphicon" style="left: 0px"><img src="img/搜索36.png" style="width: 16px;height: 16px;position:absolute;top: -6px;"></span>
-                    <input id="inp" type="text" name="username" size="28" value="" placeholder="请输入商品名称" autofocus>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-2 text-center">
-            <span style="line-height: 76px;font-size: 16px;"><a onclick="search1()" style="color: #ff7800">搜索</a></span>
-        </div>
-    </div>
-    <!--<div class="resou">
-        <h3>热搜</h3>
-        <span>热卖水果</span>
-        <span>精选肉类</span>
-        <span>精类</span>
-        <span>精选肉类</span>
-        <span>精类</span><span>精选类</span>
-        <span>精选肉类</span>
-        <span>精类</span>
-        <span>精选肉类</span>
-    </div>-->
-</div>
-<ul id="search">
-    <li class="col-xs-6" v-for="row in search">
-        <a :href="'./goofs/goods-details.html?id='+row.commodity_id"><img :src="row.commodity_coverimg" class="img-responsive"></a>
-        <span>{{ row.commodity_name }}</span>
-        <span class="float-right">
-                <input class="min" name="" type="button" value="-" />
-                <input class="text_box" name="" type="text" value="0" readonly style="border: 0" />
-                <input class="add" name="" type="button" value="+" />
-            </span>
-        <div class="row jiage">
-            <span class="col-xs-5 text-left padding">{{ row.commodity_imgprice }}/元</span><span class="col-xs-7 text-right padding" style="font-size: 12px">销售：{{ row.commodity_sales }}笔</span>
-        </div>
-    </li>
-    <div v-if="search == undefined" id="null" class="text-center">
-        没有搜到有关<span id="inp1"></span>的商品
-    </div>
-</ul>
-<script src="js/jquery-3.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/vue.min.js"></script>
-<script src="js/search.js"></script>
+	<div class="search clearFix">
+		<input name="search" type="search" id="search" value="搜索商品" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='搜索商品';" onfocus="if(this.value=='搜索商品')value='';" value="搜索商品" class="fl"/>
+	</div>
+	<nav class="clearFix">
+		<ul id="classification" class="fl">
+			<li class="white">
+				水果
+			</li>
+			<li>
+				蔬菜
+			</li>
+			<li>
+				蛋类
+			</li>
+			<li>
+				干果类
+			</li>
+			<li>
+				肉类
+			</li>
+		</ul>
+		<ul id="detailed" class="fr">
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javasrcipt:;">
+					<div>
+						<img src="images/sp.jpg"/>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<footer class="clearFix">
+		<ul>
+			<li>
+				<a href="javasrcipt:;">
+					<img src="images/home.png" /><br />
+					<span>
+						首页
+					</span>
+				</a>
+			</li>
+		</ul>
+	</footer>
 </body>
 </html>

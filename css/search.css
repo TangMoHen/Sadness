@@ -1,0 +1,72 @@
+.search{
+	width: 10rem;
+	height: .72rem;
+	background: #e7e6e6;
+	padding: .21rem .4rem;
+}
+.search #search{
+	width: 10rem;
+	height: .67rem;
+	line-height: .67rem;
+	border: none;
+	border-radius:.1rem;
+	padding-left: 1.1rem;
+	background:#fff url(../images/搜索.png) no-repeat .2rem;
+	background-size: .35rem;
+	font-size: .28rem;
+}
+nav{
+	width: 10.8rem;
+	height: 14.4rem;
+}
+nav #classification{
+	width: 2.28rem;
+	height: 14.4rem;
+	background: #f7f7f7;
+}
+nav #classification li{
+	width: 2.28rem;
+	height: .82rem;
+	line-height: .82rem;
+	margin-bottom: .1rem;
+	float: left;
+	font-size: .28rem;
+	text-align: center;
+	color: #000;
+}
+.white{
+	background-color: #fff;
+}
+nav #detailed{
+	width: 8.52rem;
+	height: 14.4rem;
+	overflow: auto;
+}
+nav #detailed li{
+	width: 3.9rem;
+	height: 4.6rem;
+	margin: .15rem .13rem;
+	float: left;
+}
+nav #detailed li img{
+	width: 3.9rem;
+	height: 4.6rem;
+}
+footer{
+	width: 10.8rem;
+	height: 1.27rem;
+	padding-top: .18rem;
+	border-top: .02rem solid #c4c4c4;
+	font-size:.28rem;
+}
+footer ul li{
+	width: 2.16rem;
+	height: 1.45rem;
+}
+footer ul li a img{
+	display: inline-block;
+	margin: 0 auto;
+}
+footer ul li a span{
+	text-align: center;
+}
