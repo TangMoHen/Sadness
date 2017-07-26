@@ -84,4 +84,63 @@ footer ul .home a{
 footer ul .home a img{
 	width: .63rem;
 	height: .64rem;
+	margin-bottom: .18rem;
+}
+footer ul .home a span{
+	margin-left: .04rem;
+}
+footer ul .cart a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .51rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .cart a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .12rem;
+	margin-bottom: .18rem;
+}
+footer ul .integral a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .49rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .integral a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .27rem;
+	margin-bottom: .18rem;
+}
+footer ul .search-b a{
+	width: 1.39rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .77rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .search-b a img{
+	width: .58rem;
+	height: .56rem;
+	margin-bottom: .22rem;
+}
+footer ul .individual a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .49rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .individual a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .27rem;
+	margin-bottom: .18rem;
 }
