@@ -1,3 +1,7 @@
+html{
+	overflow: hidden;
+}
+
 .search{
 	width: 10rem;
 	height: .72rem;
@@ -62,11 +66,22 @@ footer{
 footer ul li{
 	width: 2.16rem;
 	height: 1.45rem;
+	float: left;
 }
 footer ul li a img{
-	display: inline-block;
-	margin: 0 auto;
+	display: block;
 }
 footer ul li a span{
 	text-align: center;
+}
+footer ul .home a{
+	width: 1.41rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .75rem;
+	color: #676767;
+}
+footer ul .home a img{
+	width: .63rem;
+	height: .64rem;
 }
