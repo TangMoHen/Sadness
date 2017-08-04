@@ -46,6 +46,7 @@ nav #detailed{
 	width: 8.52rem;
 	height: 14.4rem;
 	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
 nav #detailed li{
 	width: 3.9rem;
