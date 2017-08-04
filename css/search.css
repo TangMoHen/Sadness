@@ -3,10 +3,10 @@ html{
 }
 
 .search{
-	width: 10rem;
+	width: 10.4rem;
 	height: .72rem;
 	background: #e7e6e6;
-	padding: .21rem .4rem;
+	padding: .21rem 0 .21rem .4rem;
 }
 .search #search{
 	width: 10rem;
@@ -38,7 +38,8 @@ nav #classification li{
 	text-align: center;
 	color: #000;
 }
-.white{
+#classification .white{
+	color: #E02E24;
 	background-color: #fff;
 }
 nav #detailed{
@@ -51,10 +52,44 @@ nav #detailed li{
 	height: 4.6rem;
 	margin: .15rem .13rem;
 	float: left;
+	font-size: .26rem;
+}
+nav #detailed li a{
+	color: #000000;
+}
+nav #detailed li a i{
+	width: .42rem;
+	height: .42rem;
+	background: #454;
+	display: block;
+	margin-right: .12rem;
+}
+nav #detailed li a .sell{
+	font-size: .26rem;
+	color: #9c9c9c;
+	margin-right: .2rem;
+}
+nav #detailed li a .introduce{
+	display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /* 显示行数 */
+	overflow: hidden;
+}
+nav #detailed li a #money{
+	color: #ee2e3a;
+}
+nav #xxx #detailed li a .jies{
+	height: .7rem;
+	color: #9c9c9c;
 }
 nav #detailed li img{
 	width: 3.9rem;
 	height: 4.6rem;
+}
+nav #detailed li .dd{
+	width: 3.9rem;
+	height: 3.25rem;
+	margin-bottom: .2rem;
 }
 footer{
 	width: 10.8rem;
@@ -128,19 +163,120 @@ footer ul .search-b a{
 footer ul .search-b a img{
 	width: .58rem;
 	height: .56rem;
-	margin-bottom: .22rem;
+	margin-bottom: .25rem;
 }
 footer ul .individual a{
 	width: 1.65rem;
 	height: 1.27rem;
 	display: block;
-	padding-left: .49rem;
+	padding-left: .48rem;
 	color: #676767;
 	padding-top: .01rem;
 }
 footer ul .individual a img{
 	width: .63rem;
 	height: .63rem;
-	margin-left: .27rem;
+	margin-left: .30rem;
 	margin-bottom: .18rem;
+}
+
+/* 以上是搜索第一页面样式和第二页面样式共用部分 */
+.search #search-s{
+	width: 8.73rem;
+	height: .67rem;
+	line-height: .67rem;
+	border: none;
+	border-radius:.1rem;
+	padding-left: 1.1rem;
+	background:#fff url(../images/搜索.png) no-repeat .2rem;
+	background-size: .35rem;
+	font-size: .28rem;
+}
+.search #search-q{
+	text-align: center;
+	width: 1.67rem;
+	height: .67rem;
+	line-height: .67rem;
+	font-size: .45rem;
+	color: #b7b7b7;
+}
+nav .hot-search{
+	padding-top: .24rem;
+	font-size: .4rem;
+	margin-left: .45rem;
+	margin-bottom: .29rem;
+}
+nav .hot-search-b{
+	padding-left: .45rem;
+}
+nav .hot-search-b li{
+	width: 2.7rem;
+	height: .78rem;
+	line-height: .78rem;
+	text-align: center;
+	border: .01rem solid #a8a8a8;
+	font-size: .4rem;
+	border-radius: .1rem;
+	float: left;
+	margin-right: .46rem;
+	margin-bottom: .52rem;
+}
+
+/* 以上是搜索第二页的独立样式 */
+
+nav .result{
+	font-size: .4rem;
+	line-height: 100%;
+	padding: .23rem 0 .33rem .45rem;
+}
+nav .search-goods{
+	overflow: scroll;
+	width: 10.8rem;
+	height: 14.92rem;
+	background: #f2f2f2;
+}
+nav .search-goods li{
+	width: 5.14rem;
+	height: 7.56rem;
+	background: #fff;
+	float: left;
+	margin: 0 .015rem;
+	padding-left: .23rem;
+}
+nav .search-goods li a{
+	font-size: .32rem;
+	color: #acacac;
+}
+nav .search-goods li a img{
+	width: 5.37rem;
+	height: 5.33rem;
+	margin-bottom: .33rem;
+	margin-left: -.23rem;
+}
+nav .search-goods li a i{
+	width: .42rem;
+	height: .42rem;
+	background: #454;
+	display: block;
+	margin-right: .12rem;
+}
+nav .search-goods li a .introduce{
+	width: 4.47rem;
+	height: .86rem;
+	display: block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-bottom: .25rem;
+}
+nav .search-goods li a div{
+	color: #ee2e3a;
+	font-size: .32rem;
+}
+nav .search-goods li a div b{
+	font-size: .42rem;
+}
+nav .search-goods li a .sell{
+	font-size: .36rem;
+	color: #9c9c9c;
+	margin-right: .2rem;
 }
