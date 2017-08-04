@@ -6,138 +6,44 @@
     <title>搜索商品</title>
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" type="text/css" href="css/search.css"/>
+    <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/search.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<div class="search clearFix">
-		<input name="search" type="search" id="search" value="搜索商品" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='搜索商品';" onfocus="if(this.value=='搜索商品')value='';" value="搜索商品" class="fl"/>
+		<input name="search" type="search" id="search-s" value="搜索商品" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='搜索商品';" onfocus="if(this.value=='搜索商品')value='';" value="搜索商品" class="fl"/>
+		<span class="fl" id="search-q">
+			搜索
+		</span>
 	</div>
 	<nav class="clearFix">
 		<ul id="classification" class="fl">
-			<li class="white">
-				水果
-			</li>
-			<li>
-				蔬菜
-			</li>
-			<li>
-				蛋类
-			</li>
-			<li>
-				干果类
-			</li>
-			<li>
-				肉类
-			</li>
+			<li class="white">新鲜蔬菜</li>
 		</ul>
-		<ul id="detailed" class="fr">
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="javasrcipt:;">
-					<div>
-						<img src="images/sp.jpg"/>
-					</div>
-				</a>
-			</li>
-		</ul>
+		<div id="xxx">
+			<ul id="detailed" class="fr">
+				<!--<li>-->
+					<!--<a href="javasrcipt:;">-->
+						<!--<img class="dd" src="images/分类1.jpeg" alt="" />-->
+						<!--<div class="jies">-->
+							<!--<i class="fl"></i>-->
+							<!--<span class="introduce">-->
+							<!--原产石家庄行唐现摘红啤梨大果-->
+	<!--16只装（单果120克-200克）-->
+						<!--</span>-->
+						<!--</div>-->
+						<!--<div class="fl" id="money">-->
+							<!--￥-->
+							<!--<b>17.8</b>-->
+						<!--</div>-->
+						<!--<div class="fr sell">-->
+							<!--已售519笔-->
+						<!--</div>-->
+					<!--</a>-->
+				<!--</li>-->
+			</ul>
+		</div>
 	</nav>
 	<footer class="clearFix">
 		<ul class="clearFix">
@@ -167,7 +73,7 @@
 			</li>
 			<li class="search-b">
 				<a href="javasrcipt:;">
-					<img src="images/search.png" />
+					<img src="images/search-选中.png" />
 					<span>
 						搜索
 					</span>
