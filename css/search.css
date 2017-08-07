@@ -79,6 +79,9 @@ nav #detailed li a .introduce{
 nav #detailed li a #money{
 	color: #ee2e3a;
 }
+nav #detailed li a #money b{
+	font-size: .3rem;
+}
 nav #xxx #detailed li a .jies{
 	height: .7rem;
 	color: #9c9c9c;

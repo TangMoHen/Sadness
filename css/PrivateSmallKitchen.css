@@ -1,0 +1,41 @@
+nav{
+	width: 3.75rem;
+	height: .33rem;
+}
+nav ul{
+	width: 3.75rem;
+	height: .33rem;
+}
+nav ul li{
+	width: 1.875rem;
+	height: .33rem;
+	line-height: .33rem;
+	font-size: .1529rem;
+	float: left;
+	text-align: center;
+}
+.red{
+	box-sizing: border-box;
+	border-bottom: 2px solid #e02e24;
+}
+.dishes{
+	width: 3.75rem;
+	height: 100%;
+	padding-top: .07rem;
+	background: #eee;
+}
+.vegetarian-dishes{
+	width: 3.75rem;
+	height: 100%;
+}
+.vegetarian-dishes{
+	width: 3.75rem;
+	height: 100%;
+}
+.vegetarian-dishes li{
+	width: 1.86rem;
+	height: 2.1rem;
+	background: #E02E24;
+	float: left;
+	margin: .003rem 0.0075rem;
+}
