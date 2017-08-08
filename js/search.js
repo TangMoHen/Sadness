@@ -31,7 +31,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -73,7 +73,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -115,7 +115,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -157,7 +157,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -199,7 +199,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -241,7 +241,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -283,7 +283,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -325,7 +325,7 @@ window.onload=function(){
 			                    if(r.result=='0000'){
 			                        for(var i=0;i<r.commoditylist.length;i++){
 			                            $(`<li>
-											<a href="javasrcipt:;">
+											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
 													<i class="fl"></i>
@@ -375,7 +375,7 @@ window.onload=function(){
             if(r.result=='0000'){
                 for(var i=0;i<r.commoditylist.length;i++){
                     $(`<li>
-					<a href="javasrcipt:;">
+					<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 						<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 						<div class="jies">
 							<i class="fl"></i>

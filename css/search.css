@@ -8,6 +8,10 @@ html{
 	background: #e7e6e6;
 	padding: .21rem 0 .21rem .4rem;
 }
+.search a{
+	width: 10.4rem;
+	height: .72rem;
+}
 .search #search{
 	width: 10rem;
 	height: .67rem;
@@ -195,6 +199,7 @@ footer ul .individual a img{
 	background:#fff url(../images/搜索.png) no-repeat .2rem;
 	background-size: .35rem;
 	font-size: .28rem;
+	color: #bfbfbf;
 }
 .search #search-q{
 	text-align: center;
