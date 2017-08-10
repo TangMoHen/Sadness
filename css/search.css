@@ -231,8 +231,9 @@ nav .hot-search-b li{
 	margin-bottom: .52rem;
 }
 .fff{
-    position: absolute;
-    bottom: .7rem;
+    position: fixed;
+    bottom: 0;
+	height: 2rem;
 }
 /* 以上是搜索第二页的独立样式 */
 
