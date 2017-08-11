@@ -153,6 +153,8 @@ footer .footer{
 	width: 10.8rem;
 	height: 1.17rem;
 	position: fixed;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 footer ul li{
 	width: 2.16rem;
