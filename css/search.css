@@ -145,6 +145,15 @@ footer{
 	border-top: .02rem solid #c4c4c4;
 	font-size:.28rem;
 }
+.ter{
+	position: relative;
+	background: #fff;
+}
+footer .footer{
+	width: 10.8rem;
+	height: 1.17rem;
+	position: fixed;
+}
 footer ul li{
 	width: 2.16rem;
 	height: 1.45rem;
@@ -268,14 +277,6 @@ nav .hot-search-b li{
 	float: left;
 	margin-right: .46rem;
 	margin-bottom: .52rem;
-}
-.fff{
-	position: fixed;
-	bottom: .6rem;
-	background: #fff;
-}
-.posi{
-	position: relative;
 }
 /* 以上是搜索第二页的独立样式 */
 
