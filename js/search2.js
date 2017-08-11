@@ -32,6 +32,7 @@ window.onload=function(){
 					
 				}else{
 			       alert("无此类商品");
+			       $("#search-s").val("请输入商品名称");
 				}
 			},
 			error:()=>{

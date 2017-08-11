@@ -34,7 +34,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl xxsc"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -76,7 +76,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl pzsg"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -118,7 +118,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl mmly"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -160,7 +160,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl gggg"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -202,7 +202,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl tlzq"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -244,7 +244,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl dlzq"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -286,7 +286,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl myyp"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -328,7 +328,7 @@ window.onload=function(){
 											<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 												<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 												<div class="jies">
-													<i class="fl"></i>
+													<i class="fl dhyl"></i>
 													<span class="introduce">
 														${r.commoditylist[i].commodity_name}
 													</span>
@@ -378,7 +378,7 @@ window.onload=function(){
 					<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.commoditylist[i].commodity_id}">
 						<img class="dd" src="${r.commoditylist[i].commodity_coverimg}" alt="" />
 						<div class="jies">
-							<i class="fl"></i>
+							<i class="fl xxsc"></i>
 							<span class="introduce">
 								${r.commoditylist[i].commodity_name}
 							</span>
@@ -401,13 +401,4 @@ window.onload=function(){
             alert('错了404');
         }
     });
-
-
-    //以上是品质水果的获取渲染
-
-
-
-	//以上是点击删除所有商品 并开始二次渲染
-
-
 };
