@@ -145,17 +145,6 @@ footer{
 	border-top: .02rem solid #c4c4c4;
 	font-size:.28rem;
 }
-.ter{
-	position: relative;
-	background: #fff;
-}
-footer .footer{
-	width: 10.8rem;
-	height: 1.17rem;
-	position: fixed;
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
-}
 footer ul li{
 	width: 2.16rem;
 	height: 1.45rem;
@@ -292,6 +281,7 @@ nav .search-goods{
 	width: 10.8rem;
 	height: 14.92rem;
 	background: #f2f2f2;
+	-webkit-overflow-scrolling: touch;
 }
 nav .search-goods li{
 	width: 5.14rem;
@@ -337,4 +327,19 @@ nav .search-goods li a .sell{
 	font-size: .36rem;
 	color: #9c9c9c;
 	margin-right: .2rem;
+}
+.ter{
+	position: relative;
+	background: #fff;
+	border: none;
+	width: 0;
+	height: 0;
+}
+footer .footer{
+	width: 10.8rem;
+	height: 1.17rem;
+	border-bottom: .01rem solid #c4c4c4;
+}
+.ter .footer li{
+	padding-top: .5rem;
 }
