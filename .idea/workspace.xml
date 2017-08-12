@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrivateSmallKitchen.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PrivateSmallKitchen.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PrivateSmallKitchen.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="508">
+              <caret line="99" column="17" lean-forward="false" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrivateSmallKitchen.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PrivateSmallKitchen.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/PrivateSmallKitchen.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="64" column="24" lean-forward="false" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+            <state relative-caret-position="282">
+              <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
         <option value="$PROJECT_DIR$/css/search.css" />
         <option value="$PROJECT_DIR$/js/search.js" />
         <option value="$PROJECT_DIR$/js/search2.js" />
-        <option value="$PROJECT_DIR$/PrivateSmallKitchen.html" />
         <option value="$PROJECT_DIR$/css/PrivateSmallKitchen.css" />
+        <option value="$PROJECT_DIR$/PrivateSmallKitchen.html" />
       </list>
     </option>
   </component>
@@ -190,12 +190,12 @@
       <workItem from="1501809888474" duration="19812000" />
       <workItem from="1501895947472" duration="2838000" />
       <workItem from="1502419570054" duration="1382000" />
-      <workItem from="1502501853012" duration="2267000" />
+      <workItem from="1502501853012" duration="2636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32785000" />
+    <option name="totallyTimeSpent" value="33154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -832,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PrivateSmallKitchen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/PrivateSmallKitchen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -850,8 +842,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/PrivateSmallKitchen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="64" column="24" lean-forward="false" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+        <state relative-caret-position="282">
+          <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PrivateSmallKitchen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="99" column="17" lean-forward="false" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
           <folding />
         </state>
       </provider>
