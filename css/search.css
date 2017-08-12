@@ -343,3 +343,8 @@ footer .footer{
 .ter .footer li{
 	padding-top: .5rem;
 }
+#search-fill{
+	width: 10.8rem;
+	height: 2rem;
+	background: #fff;
+}
