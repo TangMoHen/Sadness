@@ -8,7 +8,7 @@ window.onload=function(){
 			cache:false,
 			type:'post',
 			success:function(r){
-				console.log(r.data.commodityList);
+				// console.log(r.data.commodityList);
 				if(r.result=='0000'){
 					for(var i=0;i<r.data.commodityList.length;i++){
 			            $(`<li>

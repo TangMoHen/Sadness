@@ -6,7 +6,7 @@ window.onload=function(){
 	    cache:false,
 	    type:'post',
 	    success:function(r){
-	        console.log(r);
+	        // console.log(r);
             if(r.result=='2002'){
             	for(let i=1;i<r.categorylist.length;i++){
 	$(`<li id="sss${i}">${r.categorylist[i].commodity_category_name}</li>`).appendTo('#classification');
