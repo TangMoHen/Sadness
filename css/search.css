@@ -344,5 +344,6 @@ footer .footer{
 	padding-top: .5rem;
 }
 #search-se{
-	height: 10rem;
+	height: 14rem;
+	border-bottom: .01rem solid #c4c4c4;
 }
