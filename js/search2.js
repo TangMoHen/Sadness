@@ -28,8 +28,6 @@ window.onload=function(){
 							</a>
 						</li>`).appendTo('.search-goods');
 			        }
-					
-					
 				}else{
 			       alert("无此类商品");
 			       $("#search-s").val("请输入商品名称");

@@ -3,7 +3,7 @@ window.onload=function(){
 	document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
    window.onresize=function(){
       document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
-   }
+   };
    //以上是rem布局代码
 
 	var oNav=document.getElementById("kitchen");
@@ -15,6 +15,35 @@ window.onload=function(){
 				aLi[i].className='';
 			}
 			this.className='red';
-		}
+		};
 	}
-}
+	//分类点击转换样式
+
+    $.ajax({
+        url:`https://www.kpmaolv.com/maolv/cookbook/queryByCategory?cookbook_category=0`,
+        dataType:'json',
+        cache:false,
+        type:'post',
+        success:function(r){
+            console.log(r.data[0]);
+            if(r.result=='0000'){
+                for(var i=0;i<r.data.length;i++){
+                    $(`
+						<li>
+							<a href="LearningSteps.html?cookbook_id=${r.data[i].cookbook_id}" class="clearFix">
+								<img src="${r.data[i].cookbook_coverimg}" alt="" class="fl">
+								<p class="fl">${r.data[i].cookbook_name}</p>
+								<span class="fr">点击学习</span>
+							</a>
+						</li>`).appendTo('.vegetarian-dishes');
+                }
+
+
+            }
+        },
+        error:()=>{
+            alert('错了404');
+        }
+    });
+
+};
