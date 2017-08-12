@@ -1,10 +1,15 @@
 .swiper-container{
     margin: .43rem 0;
 }
+.swiper-container .swiper-wrapper #li{
+    padding-bottom: .5rem;
+}
 .swiper-container .swiper-wrapper #li img{
     width:8.89rem;
+    height: 8.41rem;
     margin:0 auto;
     border-radius: .1rem;
+    box-shadow: .2rem .2rem .2rem #dfdfdf;
 }
 .swiper-slide{
     height: 10.8rem;
