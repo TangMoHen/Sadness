@@ -2,7 +2,9 @@
     margin-bottom: .43rem;
 }
 .swiper-container .swiper-wrapper #li img{
-    width:10.8rem;
+    width:8.89rem;
+    margin:0 auto;
+    border-radius: .1rem;
 }
 .swiper-slide{
     height: 10.8rem;

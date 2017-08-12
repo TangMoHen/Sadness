@@ -26,15 +26,34 @@ window.onload=function(){
                     `).appendTo('.swiper-wrapper');
                 }
                 new Swiper('.swiper-container');
-            }else{
-                alert("无此类商品");
-                $("#search-s").val("请输入商品名称");
             }
         },
         error:()=>{
             alert('错了404');
         }
     });
+    // $.ajax({
+    //     url:`https://www.kpmaolv.com/maolv/cookbook/queryInfo${https}`,
+    //     dataType:'json',
+    //     cache:false,
+    //     type:'post',
+    //     success:function(r){
+    //         console.log(r.data.catagoryinfo[1]);
+    //         if(r.result=='0000'){
+    //             for(var i=0;i<r.data.catagoryinfo.length;i++){
+    //                 $(`
+    //                     <div class="swiper-slide" id="li">
+    //                        <img src="${r.data.catagoryinfo[i].cookbookinfo_img}" alt="">
+    //                     </div>
+    //                 `).appendTo('.swiper-wrapper');
+    //             }
+    //             new Swiper('.swiper-container');
+    //         }
+    //     },
+    //     error:()=>{
+    //         alert('错了404');
+    //     }
+    // });
 
 
 
