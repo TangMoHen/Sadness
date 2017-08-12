@@ -32,7 +32,7 @@ nav ul li{
 }
 .vegetarian-dishes li{
 	width: 1.86rem;
-	height: 2.2rem;
+	height: 2.1rem;
 	background: #fff;
 	float: left;
 	margin: .003rem 0.0075rem;
@@ -54,12 +54,12 @@ nav ul li{
 }
 .vegetarian-dishes li a span{
 	display: block;
-	width: .5rem;
-	height: .2rem;
+	width: .31rem;
+	height: .13rem;
 	background: #f93;
 	font-size: .06rem;
 	color: #fff;
 	text-align: center;
-	line-height: .2rem;
+	line-height: .13rem;
 	border-radius: .05rem;
 }
