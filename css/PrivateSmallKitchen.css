@@ -36,7 +36,7 @@ nav ul li{
 	background: #fff;
 	float: left;
 	margin: .003rem 0.0075rem;
-	margin-bottom: .1rem;
+	padding-bottom: .1rem;
 }
 .vegetarian-dishes li a{
 	width: 100%;
