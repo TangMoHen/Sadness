@@ -47,7 +47,6 @@ nav ul li{
 .vegetarian-dishes li a img{
 	width: 1.86rem;
 	height: 1.86rem;
-	margin-bottom: .12rem;
 }
 .vegetarian-dishes li a p{
 	width: 1rem;
@@ -58,6 +57,7 @@ nav ul li{
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 1;
 	overflow: hidden;
+	margin-top: .12rem;
 }
 .vegetarian-dishes li a span{
 	display: block;
@@ -70,4 +70,5 @@ nav ul li{
 	line-height: .13rem;
 	border-radius: .05rem;
 	margin-right: .08rem;
+	margin-top: .12rem;
 }
