@@ -294,17 +294,26 @@ nav .search-goods li{
 nav .search-goods li a{
 	font-size: .32rem;
 	color: #acacac;
+	position: relative;
 }
-nav .search-goods li a img{
+nav .search-goods li a .shangp{
 	width: 5.37rem;
 	height: 5.33rem;
 	margin-bottom: .33rem;
 	margin-left: -.23rem;
 }
+nav .search-goods li a .fdzq{
+	display: block;
+	width: 2rem;
+	position: absolute;
+	top: -6.95rem;
+	right: -1.6rem;
+}
 nav .search-goods li a i{
 	width: .42rem;
 	height: .42rem;
-	background: #454;
+	background: url("../images/cart.png");
+	background-size: .42rem;
 	display: block;
 	margin-right: .12rem;
 }

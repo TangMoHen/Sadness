@@ -8,25 +8,99 @@ window.onload=function(){
 			cache:false,
 			type:'post',
 			success:function(r){
-				// console.log(r.data.commodityList);
+				 // console.log(r.data.commodityList);
 				if(r.result=='0000'){
 					for(var i=0;i<r.data.commodityList.length;i++){
-			            $(`<li>
-							<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
-								<img src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
-								<i class="fl"></i>
-								<span class="introduce">
-									${r.data.commodityList[i].commodity_name}
-								</span>
-								<div class="fl">
-									￥
-									<b>${r.data.commodityList[i].commodity_imgprice}</b>
-								</div>
-								<div class="fr sell">
-									已售${r.data.commodityList[i].commodity_sales}笔
-								</div>
-							</a>
-						</li>`).appendTo('.search-goods');
+			            if(r.data.commodityList[i].commodity_category_id=="5096d338-6903-11e7-ae62-525400aa263a"){
+							$(`<li>
+								<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
+									<img class="shangp" src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
+									<i class="fl"></i>
+									<span class="introduce">
+										${r.data.commodityList[i].commodity_name}
+									</span>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fr sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
+									</div>
+									<img class="fdzq" src="images/特供_01.png" alt="">
+								</a>
+							</li>`).appendTo('.search-goods');
+						}else if(r.data.commodityList[i].commodity_category_id=="5e355b83-6903-11e7-ae62-525400aa263a"){
+							$(`<li>
+								<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
+									<img class="shangp" src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
+									<i class="fl"></i>
+									<span class="introduce">
+										${r.data.commodityList[i].commodity_name}
+									</span>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fr sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
+									</div>
+									<img class="fdzq" src="images/特供_01.png" alt="">
+								</a>
+							</li>`).appendTo('.search-goods');
+						}else if(r.data.commodityList[i].commodity_category_id=="64d7a287-6903-11e7-ae62-525400aa263a"){
+							$(`<li>
+								<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
+									<img class="shangp" src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
+									<i class="fl"></i>
+									<span class="introduce">
+										${r.data.commodityList[i].commodity_name}
+									</span>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fr sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
+									</div>
+									<img class="fdzq" src="images/特供_01.png" alt="">
+								</a>
+							</li>`).appendTo('.search-goods');
+						}else if(r.data.commodityList[i].commodity_category_id=="6b9f0aa8-6903-11e7-ae62-525400aa263a"){
+							$(`<li>
+								<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
+									<img class="shangp" src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
+									<i class="fl"></i>
+									<span class="introduce">
+										${r.data.commodityList[i].commodity_name}
+									</span>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fr sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
+									</div>
+									<img class="fdzq" src="images/特供_01.png" alt="">
+								</a>
+							</li>`).appendTo('.search-goods');
+						}else{
+							$(`<li>
+								<a href="https://www.kpmaolv.com/maolv/PC/goofs/goods-details.html?id=${r.data.commodityList[i].commodity_id}" class="clearFix">
+									<img class="shangp" src="${r.data.commodityList[i].commodity_coverimg}" alt="" />
+									<i class="fl"></i>
+									<span class="introduce">
+										${r.data.commodityList[i].commodity_name}
+									</span>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fr sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
+									</div>
+								</a>
+							</li>`).appendTo('.search-goods');
+						}
 			        }
 				}else{
 			       alert("无此类商品");
