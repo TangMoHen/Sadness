@@ -1,0 +1,135 @@
+/*#alert{
+	width: 3rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	background: #A3E4FF;
+	border-radius: .5rem;
+	text-align: center;
+	font-size: .26rem;
+	margin: 2rem 2.25rem;
+	color: #fff;
+	position: absolute;
+	box-shadow: .1rem .1rem .4rem #616161;
+}*/
+
+header{
+	width: 7.5rem;
+	height: 3.93rem;
+	background-color: #e02e24;
+	font-size: .36rem;
+	padding: .26rem 0;
+	color: #fff;
+	margin-bottom: .1rem;
+}
+header .header-l{
+	padding: 0 .1rem;
+}
+header .return{
+	widows: .21rem;
+	height: .32rem;
+}
+header .header-r{
+	margin-top: -.09rem;
+	padding-left: 2.63rem;
+	padding-right: 3rem;
+}
+header .integral{
+	margin-top: 1.55rem;
+	padding: 0 2.8rem;
+	margin-bottom: .98rem;
+}
+header .integral-l{
+	margin-right: .2rem;
+}
+header .integral-l img{
+	width: .36rem;
+	height: .37rem;
+}
+header .integral-r{
+	font-size: .7rem;
+	margin-top: -.4rem;
+}
+header nav{
+	width: 6.25rem;
+	height: .47rem;
+	margin-left: .61rem;
+	border: .02rem solid #fff;
+	border-radius: .3rem;
+	font-size: .26rem;
+}
+header nav .sign{
+	height: .45rem;
+	line-height: .45rem;
+	padding-left: 1.2rem;
+	padding-right: .97rem;
+	border-right: .01rem solid #fff;
+}
+header nav .sign a{
+	color:#fff;
+}
+header nav .detailed{
+	height: .45rem;
+	line-height: .45rem;
+	padding-left: 1.11rem;
+}
+header nav .detailed a{
+	color: #fff;
+}
+.product li{
+	width: 3.5rem;
+	height: 4.37rem;
+	float: left;
+	margin-left: .16rem;
+	margin-right: .02rem;
+	margin-bottom: .1rem;
+}
+.product li a{
+	height: 4.75rem;
+	text-align: center;
+}
+.product li a img{
+	width: 3.5rem;
+	height: 3.5rem;
+	margin-bottom: .2rem;
+}
+.product li a span{
+	color: #000;
+	display: block;
+	width: 3.5rem;
+	height: .28rem;
+	padding: 0 0 .37rem 0;
+	line-height: .3rem;
+	text-align: center;
+	font-size: .24rem;
+	overflow: hidden;
+}
+.product li a .exchange{
+	padding-top: .13rem;
+	justify-content:center;
+	display:flex;
+}
+.product li a .exchange i{
+	width: .22rem;
+	height: .24rem;
+	background: url(../images/integral_02.png) no-repeat;
+	background-size: .22rem .24rem;
+	margin-bottom: .08rem;
+}
+.product li a .exchange p{
+	color: #f93;
+	height: 100%;
+	line-height: 100%;
+	margin-left: .1rem;
+	font-size: .24rem;
+}
+
+
+/*a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+    background: none;
+    text-decoration: none;
+    	
+    	这是一个去除点击a标签会出现灰色背景的样式
+}*/

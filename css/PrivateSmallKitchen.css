@@ -36,7 +36,6 @@ nav ul li{
 	background: #fff;
 	float: left;
 	margin: .003rem 0.0075rem;
-	padding-bottom: .1rem;
 }
 .vegetarian-dishes li a{
 	width: 100%;
@@ -47,9 +46,10 @@ nav ul li{
 .vegetarian-dishes li a img{
 	width: 1.86rem;
 	height: 1.86rem;
+	margin-bottom: .06rem;
 }
 .vegetarian-dishes li a p{
-	width: 1rem;
+	width: 1.25rem;
 	height: .13rem;
 	line-height: 100%;
 	padding-left: .09rem;
@@ -57,11 +57,10 @@ nav ul li{
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 1;
 	overflow: hidden;
-	margin-top: .12rem;
 }
 .vegetarian-dishes li a span{
 	display: block;
-	width: 25%;
+	width: .31rem;
 	height: .13rem;
 	background: #f93;
 	font-size: .06rem;
@@ -70,5 +69,4 @@ nav ul li{
 	line-height: .13rem;
 	border-radius: .05rem;
 	margin-right: .08rem;
-	margin-top: .12rem;
 }

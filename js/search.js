@@ -43,9 +43,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -85,9 +88,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -127,9 +133,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -169,9 +178,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -211,9 +223,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -253,9 +268,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -295,9 +313,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -337,9 +358,12 @@ window.onload=function(){
 													￥
 													<b>${r.commoditylist[i].commodity_imgprice}</b>
 												</div>
-												<div class="fr sell">
-													已售${r.commoditylist[i].commodity_sales}笔
-												</div>
+						<div class="fl sell">
+							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
+						</div>
 											</a>
 										</li>`).appendTo('#detailed');
 			                        }
@@ -387,8 +411,11 @@ window.onload=function(){
 							￥
 							<b>${r.commoditylist[i].commodity_imgprice}</b>
 						</div>
-						<div class="fr sell">
+						<div class="fl sell">
 							已售${r.commoditylist[i].commodity_sales}笔
+						</div>
+						<div class="fr char" id="char">
+							
 						</div>
 					</a>
 				</li>`).appendTo('#detailed');

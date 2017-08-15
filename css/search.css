@@ -54,7 +54,7 @@ nav #detailed{
 }
 nav #detailed li{
 	width: 3.9rem;
-	height: 5.25rem;
+	height: 4.6rem;
 	margin: .15rem .13rem;
 	float: left;
 	font-size: .26rem;
@@ -69,7 +69,14 @@ nav #detailed li a i{
 	display: block;
 	margin-right: .12rem;
 }
-
+nav #detailed li a .char{
+	width: .5rem;
+	height: .5rem;
+	background: url(../images/购物车-红-72_01.png) no-repeat;
+	background-size: .5rem;
+	margin-right: .2rem;
+	z-index: 2;
+}
 /* 进行分类加载样式实现i转换图片 */
 nav #detailed li a .xxsc{
 	background: url(../images/蔬菜_01.png) no-repeat;
@@ -109,8 +116,9 @@ nav #detailed li a .dhyl{
 
 
 nav #detailed li a .sell{
-	font-size: .26rem;
+	font-size: .2rem;
 	color: #9c9c9c;
+	margin-left: .2rem;
 	margin-right: .2rem;
 }
 nav #detailed li a .introduce{
@@ -135,7 +143,7 @@ nav #detailed li img{
 }
 nav #detailed li .dd{
 	width: 3.9rem;
-	height: 3.9rem;
+	height: 3.25rem;
 	margin-bottom: .2rem;
 }
 footer{
