@@ -1,74 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>基于jquery.fly模仿天猫抛物线加入购物车特效代码</title>
-<style>
-
-* {margin:0;padding:0;list-style:none;}
-ul li{
-	float:left;
-	margin:20px;
-}
-ul .m-tip {
-	border: 4px solid #ccc;
-	color: #999;
-	width:100px;
-	height:100px;
-	text-align:center;
-	line-height:30px;
-	cursor:pointer;
-}
-.m-sidebar {position: fixed;bottom: 0;left: 0;background: #000;z-index: 2000;	width: 100%;height: 40px;font-size: 12px;color: #fff;}
-.m-sidebar .cart {color: #fff;text-align: center;}
-.m-sidebar .cart span {	display: block;	width: 100px;margin: 0 auto;}
-.m-sidebar .cart i {width: 35px;height: 35px;display: block;}
-.u-flyer {display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;}
-
-</style>
+	<meta charset="UTF-8">
+	<title>懒人原生模拟移动APP飞入购物车动画效果</title>
+	<meta content="width=device-width, initial-scale=1,maximum-scale=1,maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<!--代码部分begin-->
-<div class="m-tip">
-</div>
-<ul>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-	<li class="m-tip"></li>
-</ul>
-<div class="m-sidebar">
-	<div class="cart">
-    	<i id="end"></i>
-        <span>购物车</span>
-    </div>
-</div>
-<script src="http://www.lanrenzhijia.com/ajaxjs/1.9.1/jquery-1.9.1.min.js"></script>
-<script src="js/jquery.fly.min.js"></script> 
-<script>
-$('.m-tip').on('click', addCart);
-function addCart(event) {
-var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src="images/购物车-红-72_01.png"/>');
-flyer.fly({
-    start: {
-        left: event.pageX,
-        top: event.pageY
-    },
-    end: {
-        left: offset.left,
-        top: offset.top,
-        width: 20,
-        height: 20
-    }
-});
-}
-</script> 
-<!--代码部分end-->
-
+	<!-- 代码部分begin -->
+	<div class="store">
+		<aside class="menu">
+			<li typeid="tuijian">店铺推荐</li>
+			<li typeid="123100" class="current">热卖推荐</li>
+			<li typeid="122820">嗦碗粉</li>
+			<li typeid="123088">赤粉套餐</li>
+			<li typeid="122821">秘制盖码（肉不够？这里这里加！）</li>
+			<li typeid="122822">秘制卤味米粉伴侣</li>
+			<li typeid="123057">夏日特饮</li>
+		</aside>
+		<aside class="list">
+			<div id="tuijian" class="item">
+				<li productid="1444574" productattrid="3665545" packcost="2">
+					<p class="title">【微辣】脆嫩牛肚粉</p>
+					<p class="price">￥20.0</p>
+					<p class="sale">近期销售7份</p>
+					<div class="add0"></div>
+					<div class="add1">
+						<a href="javascript:;" class="reduce"></a>
+						<span class="number">1</span>
+						<a href="javascript:;" class="add"></a>
+					</div>
+				</li>
+				<li productid="1446265" productattrid="3669009" packcost="2">
+					<p class="title">【爆款】赤粉三侠</p>
+					<p class="price">￥28.0</p>
+					<p class="sale">近期销售6份</p>
+					<div class="add0"></div>
+					<div class="add1">
+						<a href="javascript:;" class="reduce"></a>
+						<span class="number">1</span>
+						<a href="javascript:;" class="add"></a>
+					</div>
+				</li>
+				<li productid="1444571" productattrid="3665542" packcost="2">
+					<p class="title">【酱汁】汁骨牛排粉</p>
+					<p class="price">￥24.0</p>
+					<p class="sale">近期销售3份</p>
+					<div class="add0"></div>
+					<div class="add1">
+					<a href="javascript:;" class="reduce"></a>
+					<span class="number">1</span>
+					<a href="javascript:;" class="add"></a>
+					</div>
+				</li>
+			</div>
+		</aside>
+	</div>
+	<footer class="shop">
+		<div class="money"><span id="amount">0</span>￥<span id="price">0.0</span></div>
+		<div id="go" class="go">选好了</div>
+	</footer>
+	<img src="images/logo.png" style="display:none;">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.fly.min.js"></script>
+	<script>
+		function addFly(event) {
+		    var offset = $('#amount').offset(), flyer = $('<img class="u-flyer" src="images/logo.png"/>');
+		    flyer.fly({
+		        start: {
+		            left: event.pageX-40,
+		            top: event.pageY-20
+		        },
+		        end: {
+		            left: offset.left,
+		            top: offset.top,
+		            width: 24,
+		            height: 24,
+		        }
+		    });
+		}
+		$(function(){
+			$(".add1").on("click",function(){
+				addFly(event);
+			})
+		})
+	</script>
+	<!-- 代码部分end -->
 </body>
 </html>
