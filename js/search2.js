@@ -116,7 +116,7 @@ window.onload=function(){
 	
 	
 	$("#cart img").click(function(){
-		window.open('www.baidu.com');
+		 window.location.href="www.baidu.com";
 	});
 	
 	
