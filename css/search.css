@@ -346,9 +346,20 @@ nav .search-goods li a div b{
 	font-size: .42rem;
 }
 nav .search-goods li a .sell{
-	font-size: .36rem;
+	font-size: .28rem;
 	color: #9c9c9c;
 	margin-right: .2rem;
+	margin-left: .2rem;
+	padding-top: .05rem;
+}
+nav .search-goods li a #char{
+	width: .5rem;
+	height: .5rem;
+	background: url(../images/购物车-红-72_01.png) no-repeat;
+	background-size: .5rem;
+	margin-right: .2rem;
+	bottom: 0;
+	z-index: 99;
 }
 .ter{
 	position: relative;

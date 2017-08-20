@@ -116,9 +116,9 @@ window.onload=function(){
 	
 	
 	$("#cart img").click(function(){
-		 window.location.href="www.baidu.com";
+		 window.location.href="https://www.baidu.com";
 	});
 	
-	
+	//点击跳转购物车页面
 
 }
