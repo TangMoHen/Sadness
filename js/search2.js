@@ -115,9 +115,9 @@ window.onload=function(){
 	
 	
 	
-	${#cart}.click(function(){
+	$(#cart).click(function(){
 		alert("你点击了购物车");
-	})
+	});
 	
 	
 
