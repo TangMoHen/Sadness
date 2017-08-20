@@ -352,12 +352,17 @@ nav .search-goods li a .sell{
 	margin-left: .2rem;
 	padding-top: .05rem;
 }
+nav .search-goods li a #box{
+	position: relative;
+}
 nav .search-goods li a #char{
-	width: .5rem;
-	height: .5rem;
+	width: .6rem;
+	height: .6rem;
 	background: url(../images/购物车-红-72_01.png) no-repeat;
-	background-size: .5rem;
+	background-size: .6rem;
 	margin-right: .2rem;
+	position: absolute;
+	right: .1rem;
 	bottom: 0;
 	z-index: 99;
 }
