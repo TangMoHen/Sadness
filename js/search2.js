@@ -115,8 +115,8 @@ window.onload=function(){
 	
 	
 	
-	$(#cart).click(function(){
-		alert("你点击了购物车");
+	$("#cart img").click(function(){
+		alert("点我干啥");
 	});
 	
 	
