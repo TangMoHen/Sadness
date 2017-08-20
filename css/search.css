@@ -1,0 +1,400 @@
+html{
+	overflow: hidden;
+}
+
+.search{
+	width: 10.4rem;
+	height: .72rem;
+	background: #e7e6e6;
+	padding: .21rem 0 .21rem .4rem;
+}
+.search a{
+	width: 10.4rem;
+	height: .72rem;
+}
+.search #search{
+	width: 10rem;
+	height: .67rem;
+	line-height: .67rem;
+	border: none;
+	border-radius:.1rem;
+	padding-left: 1.1rem;
+	background:#fff url(../images/搜索.png) no-repeat .2rem;
+	background-size: .35rem;
+	font-size: .28rem;
+}
+nav{
+	width: 10.8rem;
+	height: 14.4rem;
+}
+nav #classification{
+	width: 2.28rem;
+	height: 14.4rem;
+	background: #f7f7f7;
+}
+nav #classification li{
+	width: 2.28rem;
+	height: .82rem;
+	line-height: .82rem;
+	margin-bottom: .1rem;
+	float: left;
+	font-size: .28rem;
+	text-align: center;
+	color: #000;
+}
+#classification .white{
+	color: #E02E24;
+	background-color: #fff;
+}
+nav #detailed{
+	width: 8.52rem;
+	height: 14.4rem;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+nav #detailed li{
+	width: 3.9rem;
+	height: 4.6rem;
+	margin: .15rem .13rem;
+	float: left;
+	font-size: .26rem;
+	position: relative;
+}
+nav #detailed li a{
+	color: #000000;
+}
+nav #detailed li a i{
+	width: .42rem;
+	height: .42rem;
+	background: #454;
+	display: block;
+	margin-right: .12rem;
+}
+
+nav #detailed li #char{
+	width: .5rem;
+	height: .5rem;
+	background: url(../images/购物车-红-72_01.png) no-repeat;
+	background-size: .5rem;
+	position: absolute;
+	right: .1rem;
+	bottom: 0;
+	z-index: 99;
+}
+/* 进行分类加载样式实现i转换图片 */
+nav #detailed li a .xxsc{
+	background: url(../images/蔬菜_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .pzsg{
+	background: url(../images/水果_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .mmly{
+	background: url(../images/粮油_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .gggg{
+	background: url(../images/干货_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .tlzq{
+	background: url(../images/干调_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .dlzq{
+	background: url(../images/蛋类_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .myyp{
+	background: url(../images/母婴用品_01.png) no-repeat;
+	background-size: .42rem;
+}
+nav #detailed li a .dhyl{
+	background: url(../images/肉类_01.png) no-repeat;
+	background-size: .42rem;
+}
+
+
+
+
+
+nav #detailed li a .sell{
+	font-size: .2rem;
+	color: #9c9c9c;
+	padding-top: .06rem;
+	margin-left: .2rem;
+	margin-right: .2rem;
+}
+nav #detailed li a .introduce{
+	display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /* 显示行数 */
+	overflow: hidden;
+}
+nav #detailed li a #money{
+	color: #ee2e3a;
+}
+nav #detailed li a #money b{
+	font-size: .3rem;
+}
+nav #xxx #detailed li a .jies{
+	height: .7rem;
+	color: #9c9c9c;
+}
+nav #detailed li img{
+	width: 3.9rem;
+	height: 4.6rem;
+}
+nav #detailed li .dd{
+	width: 3.9rem;
+	height: 3.25rem;
+	margin-bottom: .2rem;
+}
+footer{
+	width: 10.8rem;
+	height: 1.17rem;
+	padding-top: .28rem;
+	border-top: .02rem solid #c4c4c4;
+	font-size:.28rem;
+}
+footer ul li{
+	width: 2.16rem;
+	height: 1.45rem;
+	float: left;
+}
+footer ul li a img{
+	display: block;
+}
+footer ul li a span{
+	text-align: center;
+}
+footer ul .home a{
+	width: 1.41rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .75rem;
+	color: #676767;
+}
+footer ul .home a img{
+	width: .63rem;
+	height: .64rem;
+	margin-bottom: .18rem;
+}
+footer ul .home a span{
+	margin-left: .04rem;
+}
+footer ul .cart{
+	position: relative;
+	z-index: 2222;
+	background: #fff;
+}
+footer ul .cart a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .51rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .cart a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .12rem;
+	margin-bottom: .18rem;
+}
+footer ul .integral a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .49rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .integral a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .27rem;
+	margin-bottom: .18rem;
+}
+footer ul .search-b a{
+	width: 1.39rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .77rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .search-b a img{
+	width: .58rem;
+	height: .56rem;
+	margin-bottom: .25rem;
+}
+footer ul .individual a{
+	width: 1.65rem;
+	height: 1.27rem;
+	display: block;
+	padding-left: .48rem;
+	color: #676767;
+	padding-top: .01rem;
+}
+footer ul .individual a img{
+	width: .63rem;
+	height: .63rem;
+	margin-left: .30rem;
+	margin-bottom: .18rem;
+}
+
+/* 以上是搜索第一页面样式和第二页面样式共用部分 */
+.search #search-s{
+	width: 8.73rem;
+	height: .67rem;
+	line-height: .67rem;
+	border: none;
+	border-radius:.1rem;
+	padding-left: 1.1rem;
+	background:#fff url(../images/搜索.png) no-repeat .2rem;
+	background-size: .35rem;
+	font-size: .28rem;
+	color: #bfbfbf;
+}
+.search #search-q{
+	text-align: center;
+	width: 1.67rem;
+	height: .67rem;
+	line-height: .67rem;
+	font-size: .45rem;
+	color: #b7b7b7;
+}
+nav .hot-search{
+	padding-top: .24rem;
+	font-size: .4rem;
+	margin-left: .45rem;
+	margin-bottom: .29rem;
+}
+nav .hot-search-b{
+	padding-left: .45rem;
+}
+nav .hot-search-b li{
+	width: 2.7rem;
+	height: .78rem;
+	line-height: .78rem;
+	text-align: center;
+	border: .01rem solid #a8a8a8;
+	font-size: .4rem;
+	border-radius: .1rem;
+	float: left;
+	margin-right: .46rem;
+	margin-bottom: .52rem;
+}
+/* 以上是搜索第二页的独立样式 */
+
+nav .result{
+	font-size: .4rem;
+	line-height: 100%;
+	padding: .23rem 0 .33rem .45rem;
+}
+nav .search-goods{
+	overflow: scroll;
+	width: 10.8rem;
+	height: 14.92rem;
+	background: #f2f2f2;
+	-webkit-overflow-scrolling: touch;
+}
+nav .search-goods li{
+	width: 5.14rem;
+	height: 7.56rem;
+	background: #fff;
+	float: left;
+	margin: 0 .015rem;
+	padding-left: .23rem;
+	position: relative;
+}
+nav .search-goods li a{
+	font-size: .32rem;
+	color: #acacac;
+}
+nav .search-goods li a .shangp{
+	width: 5.37rem;
+	height: 5.33rem;
+	margin-bottom: .33rem;
+	margin-left: -.23rem;
+}
+nav .search-goods li a .fdzq{
+	display: block;
+	width: 2rem;
+	position: absolute;
+	top: -6.95rem;
+	right: -1.6rem;
+}
+nav .search-goods li a i{
+	width: .42rem;
+	height: .42rem;
+	background: url("../images/cart.png");
+	background-size: .42rem;
+	display: block;
+	margin-right: .12rem;
+}
+nav .search-goods li a .introduce{
+	width: 4.47rem;
+	height: .86rem;
+	display: block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-bottom: .25rem;
+}
+nav .search-goods li a div{
+	color: #ee2e3a;
+	font-size: .32rem;
+}
+nav .search-goods li a div b{
+	font-size: .42rem;
+}
+nav .search-goods li a .sell{
+	font-size: .28rem;
+	color: #9c9c9c;
+	margin-right: .2rem;
+	margin-left: .2rem;
+	padding-top: .05rem;
+}
+nav .search-goods li #char{
+	width: .6rem;
+	height: .6rem;
+	background: url(../images/购物车-红-72_01.png) no-repeat;
+	background-size: .6rem;
+	margin-right: .2rem;
+	position: absolute;
+	right: .1rem;
+	bottom: .25rem;
+	z-index: 99;
+}
+.ter{
+	position: relative;
+	background: #fff;
+	border: none;
+	width: 0;
+	height: 0;
+}
+footer .footer{
+	width: 10.8rem;
+	height: 1.17rem;
+	border-bottom: .01rem solid #c4c4c4;
+}
+.ter .footer li{
+	padding-top: .5rem;
+}
+#cart{
+	width: 1rem;
+	height: 1rem;
+	position: fixed;
+	left: .3rem;
+	bottom: 1.2rem;
+}
+#cart img{
+	width: 1rem;
+	height: 1rem;
+	position: relative;
+}
+.u-flyer{
+	z-index: 1;
+}
