@@ -365,3 +365,15 @@ footer .footer{
 .ter .footer li{
 	padding-top: .5rem;
 }
+#cart{
+	width: 1.4rem;
+	height: 1.4rem;
+	position: fixed;
+	left: .3rem;
+	bottom: 1.2rem;
+}
+#cart img{
+	width: .8rem;
+	height: .8rem;
+	position: relative;
+}
