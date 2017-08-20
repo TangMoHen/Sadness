@@ -19,18 +19,16 @@ window.onload=function(){
 									<span class="introduce">
 										${r.data.commodityList[i].commodity_name}
 									</span>
-									<div class="clearFix" id="box">
-										<div class="fl">
-											￥
-											<b>${r.data.commodityList[i].commodity_imgprice}</b>
-										</div>
-										<div class="fl sell">
-											已售${r.data.commodityList[i].commodity_sales}笔
-										</div>
-										<div class="fr" id="char"></div>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fl sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
 									</div>
 									<img class="fdzq" src="images/特供_01.png" alt="">
 								</a>
+								<div class="fr" id="char"></div>
 							</li>`).appendTo('.search-goods');
 						}else if(r.data.commodityList[i].commodity_category_id=="5e355b83-6903-11e7-ae62-525400aa263a"){
 							$(`<li>
@@ -40,18 +38,16 @@ window.onload=function(){
 									<span class="introduce">
 										${r.data.commodityList[i].commodity_name}
 									</span>
-									<div class="clearFix" id="box">
-										<div class="fl">
-											￥
-											<b>${r.data.commodityList[i].commodity_imgprice}</b>
-										</div>
-										<div class="fl sell">
-											已售${r.data.commodityList[i].commodity_sales}笔
-										</div>
-										<div class="fr" id="char"></div>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fl sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
 									</div>
 									<img class="fdzq" src="images/特供_01.png" alt="">
 								</a>
+								<div class="fr" id="char"></div>
 							</li>`).appendTo('.search-goods');
 						}else if(r.data.commodityList[i].commodity_category_id=="64d7a287-6903-11e7-ae62-525400aa263a"){
 							$(`<li>
@@ -61,18 +57,16 @@ window.onload=function(){
 									<span class="introduce">
 										${r.data.commodityList[i].commodity_name}
 									</span>
-									<div class="clearFix" id="box">
-										<div class="fl">
-											￥
-											<b>${r.data.commodityList[i].commodity_imgprice}</b>
-										</div>
-										<div class="fl sell">
-											已售${r.data.commodityList[i].commodity_sales}笔
-										</div>
-										<div class="fr" id="char"></div>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fl sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
 									</div>
 									<img class="fdzq" src="images/特供_01.png" alt="">
 								</a>
+								<div class="fr" id="char"></div>
 							</li>`).appendTo('.search-goods');
 						}else if(r.data.commodityList[i].commodity_category_id=="6b9f0aa8-6903-11e7-ae62-525400aa263a"){
 							$(`<li>
@@ -82,18 +76,16 @@ window.onload=function(){
 									<span class="introduce">
 										${r.data.commodityList[i].commodity_name}
 									</span>
-									<div class="clearFix" id="box">
-										<div class="fl">
-											￥
-											<b>${r.data.commodityList[i].commodity_imgprice}</b>
-										</div>
-										<div class="fl sell">
-											已售${r.data.commodityList[i].commodity_sales}笔
-										</div>
-										<div class="fr" id="char"></div>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fl sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
 									</div>
 									<img class="fdzq" src="images/特供_01.png" alt="">
 								</a>
+								<div class="fr" id="char"></div>
 							</li>`).appendTo('.search-goods');
 						}else{
 							$(`<li>
@@ -103,17 +95,15 @@ window.onload=function(){
 									<span class="introduce">
 										${r.data.commodityList[i].commodity_name}
 									</span>
-									<div class="clearFix" id="box">
-										<div class="fl">
-											￥
-											<b>${r.data.commodityList[i].commodity_imgprice}</b>
-										</div>
-										<div class="fl sell">
-											已售${r.data.commodityList[i].commodity_sales}笔
-										</div>
-										<div class="fr" id="char"></div>
+									<div class="fl">
+										￥
+										<b>${r.data.commodityList[i].commodity_imgprice}</b>
+									</div>
+									<div class="fl sell">
+										已售${r.data.commodityList[i].commodity_sales}笔
 									</div>
 								</a>
+								<div class="fr" id="char"></div>
 							</li>`).appendTo('.search-goods');
 						}
 			        }
