@@ -1,0 +1,552 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+#loading{
+    width:100%;
+    height:100%;
+    position: fixed;
+    line-height:56px;
+    color:#fff;
+    font-size:15px;
+    background: #ffffff url(../image/jiazai.gif) no-repeat 50% 30%;
+    z-index:9999;
+    -moz-border-radius:20px;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+#main{
+    background-color: #f2f2f2;
+}
+.head{
+    background-position: 0 0;
+    font-size: 0;
+    height: 1.35rem;
+    padding: .33rem 0 0 .17rem;
+    position: relative;
+
+}
+.head-bg-img{
+    background-image: url("../image/头像背景.jpg");
+}
+.head-bg-img img{
+    border: .015rem solid hsla(0,0%,100%,.5);
+    border-radius: 100%;
+    display: inline-block;
+    height: .64rem;
+    position: relative;
+    width: .64rem;
+}
+.head-p{
+    display: inline-block;
+    margin: .15rem 0 0 .16rem;
+}
+.name-p{
+    color: #fff;
+    font-size: .16rem;
+    line-height: .16rem;
+    position: relative;
+    bottom: .3rem;
+}
+.personal-orders{
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+}
+.order-p{
+    height: .45rem;
+    line-height: .45rem;
+    margin-left: .12rem;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #ededed;
+}
+.order-p img{
+    width: .14rem;
+    height: .14rem;
+    float: right;
+    position: relative;
+    left: .8rem;
+    top: .16rem;
+}
+.all-order-p{
+    color: #151516;
+    float: left;
+    font-size: .16rem;
+}
+.all-orders-p{
+    color: #9c9c9c;
+    float: right;
+    font-size: .13rem;
+    margin-right: .4rem;
+}
+.personal-1{
+    height: .77rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.personal-1-item{
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: inherit;
+    text-align: center;
+    width: 25%;
+}
+
+.item-images img{
+    height: .36rem;
+    margin: .12rem auto .07rem;
+    width: .36rem;
+    display: block;
+}
+.item-images p{
+    font-size: .12rem;
+}
+.personal-2{
+    height: .76rem;
+    margin-top: .1rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+}
+.personal-2-item{
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: inherit;
+    text-align: center;
+}
+.personal-list{
+    height: auto;
+    margin-top: .1rem;
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+}
+.personal-list ul{
+    list-style: none;
+}
+.personal-list ul li{
+    position: relative;
+    display: block;
+    height: .45rem;
+    line-height: .45rem;
+    border-bottom: 1px solid #ededed;
+    font-size: .12rem;
+}
+.personal-list ul li img{
+    width: 0.18rem;
+    position: relative;
+    top: .05rem;
+    padding-right: .15rem;
+    padding-left: .12rem;
+}
+.personal-list1{
+    height: auto;
+
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding-left: .12rem;
+}
+.personal-list1 ul{
+    list-style: none;
+}
+.personal-list1 ul li{
+    position: relative;
+    display: block;
+    height: .45rem;
+    line-height: .45rem;
+    border-bottom: 1px solid #ededed;
+    font-size: .12rem;
+}
+.personal-list1 ul li img{
+    width: 0.18rem;
+    position: relative;
+    top: .05rem;
+    padding-right: .15rem;
+}
+.text-center{
+    text-align: center;
+}
+.width-20{
+    width:20%;
+    float: left;
+}
+.index-footer{
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+    padding-top: .05rem;
+}
+.index-footer a{
+    display: block;
+    /*width: .3rem;*/
+    /*padding: .05rem 0.3rem;*/
+    font-size: .12rem;
+    margin: 0 auto;
+}
+.index-footer a img{
+    width: .22rem;
+    height: .22rem;
+    display: block;
+    margin: 0 auto;
+}
+.addresses-main{
+    position:relative;
+}
+.addresses-list{
+    position: relative;
+    width: 100%;
+}
+.address-item-use{
+    position: relative;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.address-item-wrap{
+    padding: 16px 15px 0;
+    min-height: 55px;
+    height: auto;
+    color: #151516;
+    font-size: 14px;
+    border-bottom: 1px solid #ededed;
+}
+.address-item-main{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 14px;
+}
+.contact-name{
+    margin-bottom: 4px;
+}
+.contact-address{
+    margin-bottom: 4px;
+}
+.contact-name1{
+    margin-bottom: 4px;
+}
+.address-item-ops-1{
+    position: relative;
+    display: inline-block;
+    width: 32%;
+    height: 40px;
+    padding-left: 15px;
+    text-align: left;
+    line-height: 41px;
+}
+.default1{
+    position: relative;
+    display: inline-block;
+    height: 13px;
+    line-height: 1;
+    color: #e02e24;
+    font-size: 13px;
+    margin-left: 20px;
+    text-align: center;
+}
+.address-item-ops-2{
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    padding-right: 15px;
+    float: right;
+    text-align: right;
+    line-height: 41px;
+    color: #9c9c9c;
+    font-size: 13px;
+    margin-top: -43px;
+}
+.address-item-edit{
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 100%;
+
+}
+.address-item-edit span{
+    position: relative;
+    display: inline-block;
+    height: 13px;
+    line-height: 1;
+    margin-left: 25px;
+}
+.address-item-delete{
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 100%;
+    margin-left: 4px;
+}
+.address-item-delete span{
+    position: relative;
+    display: inline-block;
+    height: 13px;
+    line-height: 1;
+    margin-left: 24px;
+}
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+    content: "\EA06";
+    color: #ff0000
+}
+.weui-cell__bd p{
+    font-size: 14px;
+}
+.empty-address{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    text-align: center;
+    height: 72px;
+}
+.empty-icon{
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    background: url(../image/地址--72_01.png) no-repeat;
+}
+.add-btn{
+    position: relative;
+    width: 100%;
+    height: 47px;
+    padding-bottom: 10px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+.btn{
+    position: relative;
+    display: inline-block;
+    width: 92%;
+    height: 100%;
+    border-radius: 4px;
+    margin-right: 4px;
+    background-color: #e02e24;
+    border: none;
+}
+.btn span{
+    color: #ffffff;
+    position: relative;
+    bottom: 5px;
+}
+.btn img{
+    height: 22px;
+    width: 22px;
+}
+.weui-label {
+    width: 70px;
+}
+.address{
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+.address-title{
+    position: relative;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    border-bottom: 1px solid #ededed;
+}
+.address-receiver{
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+.address-name{
+    height: 30px;
+    padding: 10px 0 10px 14px;
+    font-size: 16px;
+    line-height: normal;
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+    border-right: 1px solid #ededed;
+    border-radius: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-top: 0;
+    outline: none;
+
+}
+.address-phone{
+    height: 30px;
+    padding: 10px 0 10px 14px;
+    font-size: 16px;
+    line-height: normal;
+    position: relative;
+    display: inline-block;
+    width: 48%;
+    text-align: left;
+    border:none;
+    outline: none;
+    right: 5px;
+
+}
+.weui-input{
+    text-align: center;
+}
+.address-main1{
+    position: relative;
+    height: 52px;
+    font-size: .15rem;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ededed;
+
+}
+.address-main1 select{
+    height: 52px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    background-color:transparent
+}
+.address-close{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    top: 10px;
+    right: 10px;
+
+}
+.address-close img{
+    width: 10px;
+    height: 10px;
+}
+.address-save{
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 46px;
+    line-height: 43px;
+    margin: 12px 0;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 5px;
+    background: #ff0000;
+}
+.address1{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #7b7b7b;
+    display: none
+}
+.address2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #7b7b7b;
+    display: none
+}
+.weui-tab__bd-item img{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    vertical-align: top;
+}
+.weui-tab__bd-item p
+{
+    font-size: .1rem;
+    position: absolute;
+    left: .13rem;
+    bottom: 0.1rem;
+}
+.image{
+    position: relative;
+    width: 3.75rem;
+    overflow: hidden;
+}
+.discount{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 1.18rem;
+
+}
+.base-list{
+    position: relative;
+}
+.youhuijuan{
+    position: absolute;
+    letter-spacing: 4px;
+    right: .28rem;
+    color: #fff;
+}
+.discount-value{
+    width: .92rem;
+    height: 1.18rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.discount-value1{
+    text-align: center;
+    position: relative;
+    color: #e41d82;
+}
+.base-list1{
+    width: 3.75rem;
+    height: 1.18rem;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+
+}
+.base-list1 h3{
+    color: #ffffff;
+    text-align: center;
+    font-size: .18rem;
+}
+.discount-value1 h2{
+    font-size: .24rem;
+}
+
+.no-coupon{
+    width: 100%;
+    text-align: center;
+}
+.no-coupons-icon
+{
+    background: url(../image/优惠券1--48_01.png) no-repeat;
+    background-size: .7rem .7rem;
+    width: .75rem;
+    height: .75rem;
+    margin: 1.5rem auto .22rem;
+}
+.no-coupon p{
+    font-size: .14rem;
+    color: #9c9c9c;
+}
+.weui-navbar__item.weui-bar__item--on span{
+    color: red;
+    border-bottom: 1px solid red;
+}

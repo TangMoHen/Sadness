@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before{
+            color: red;
+        }
+        .weui-cells_checkbox .weui-icon-checked:before{
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color: #f2f2f2">
+<div id="loading"></div>
+<div id="shopping-cart">
+    <div v-if="goods.length !==0" class="shopping-cart">
+        <div class="item" v-for="item in goods" v-if="item.length !==0">
+            <div class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" :value="item.shoppingCart_id" class="weui-check" name="quanxian" v-model="item.isChecked">
+                        <i class="weui-icon-checked"></i>
+                    </div>
+                </label>
+            </div>
+            <div class="shopping-img">
+                <img class="img" :src="item.commodity_coverimg" alt="">
+                <img v-if="item.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="../image/48_01.png" alt="" style="position:absolute;top: 0;left: 0">
+            </div>
+            <div class="shopping-name">
+                <p v-if="item.activity_describe !== undefined && item.activity_type == 'miaosha'">{{ item.activity_describe }}</p>
+                <p v-else>{{ item.commodity_name }}</p>
+                <span v-if="item.activity_price == undefined" class="my-red">&yen;{{ item.commodity_imgprice }}</span>
+                <span v-if="item.activity_price !== undefined" class="my-red">&yen;{{ item.activity_price }}</span>
+                <span class="float-right">已售{{ item.commodity_sales }}笔</span>
+                <div class="shopping-price">
+                    购买数量
+                    <input class="min" name="" type="button" value="-"  @click="min(item)" :disabled="item.shoppingCart_quantity<2" style="border: none;width: .23rem;height: .18rem"/>
+                    <input style="width: .3rem;height: .18rem;border: 0;background-color: #ffffff" :value="item.shoppingCart_quantity" class="text_box text-center" name="" type="text" value="1"  disabled="disabled" readonly="readonly" />
+                    <input class="add" name="" type="button" value="+" @click="greet(item)" :disabled="item.shoppingCart_quantity>=item.commodity_limitbuy" style="border: none;width: .23rem;height: .18rem"/>
+                </div>
+            </div>
+            <div class="shopping-delete">
+                <img src="../image/删除--36_01.png" alt="" @click="delete1(item.shoppingCart_id)">
+            </div>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="weui-cells weui-cells_checkbox">
+                <label class="weui-cell weui-check__label" for="x1">
+                    <div class="weui-cell__hd">
+                        <input type="checkbox" v-model="allCheckedStatus" @click="allChecked" class="weui-check" name="quanxuan" id="x1">
+                        <i class="weui-icon-checked"></i>
+                        <span class="my-red">全选</span>
+                    </div>
+                </label>
+            </div>
+            <div class="shopping-cart-total">
+                合计：
+                <span class="my-red">&yen;{{ sum }}免费运</span>
+            </div>
+            <div class="btn-3 btn-red" onclick="jisuan()">
+                结算
+            </div>
+        </div>
+    </div>
+    <div class="shopping-null text-center" v-else>
+        <div  style="margin-top: 1.55rem">
+            <img src="../image/购物车48.png" style="height: .44rem;width: .49rem;display: inline-block">
+            <div class="text-center">
+                <h5>购物车空空的</h5>
+                <h5>赶紧去购买商品吧</h5>
+            </div>
+        </div>
+    </div>
+    <ul class="index-footer">
+        <li class="width-20 text-center" onclick="removeIndex()">
+            <a href="../index.html">
+                <img src="../image/首页--36_01.png" alt="">
+                <span>首页</span>
+            </a>
+        </li>
+        <li class="width-20 text-center shopping">
+            <a>
+                <img src="../image/购物车-选中--36_01.png" alt="">
+                <span>购物车</span>
+            </a>
+            <div class="shopping-sum">&yen;{{ sum }}</div>
+        </li>
+        <li class="width-20 text-center">
+            <a href="##">
+                <img src="../image/积分商城--36_01.png" alt="">
+                <span>积分商城</span>
+            </a>
+        </li>
+        <li class="width-20 text-center">
+            <a href="../search/search.html">
+                <img src="../image/搜索--36_01.png" alt="">
+                <span>搜索</span>
+            </a>
+        </li>
+        <li class="width-20 text-center">
+            <a href="../userlogin/wode.html">
+                <img src="../image/我的--36_01.png" alt="">
+                <span>个人中心</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="add-1" style="position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,.3);top: 0;display: none">
+    <div style="position: fixed;width: 80px;height: 80px;background: rgba(0,0,0,.3);top: 50%;left: 50%;margin: -40px 0 0 -40px;border-radius: 8px;text-align: center">
+        <img src="../image/jiazai.gif" style="display:inline-block;margin-top: 16px">
+        <div>加载中...</div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/shopping-cart.js"></script>
+<script src="../js/removeIndex.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+</script>
+</body>
+</html>

@@ -1,97 +1,246 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>毛驴生活网</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
-    <title>搜索商品</title>
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="css/search.css"/>
-    <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/jquery.fly.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/search.js" type="text/javascript" charset="utf-8"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="./css/weui.min.css">
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /*.swiper-pagination-bullet{
+            background: #ffffff;
+            opacity:1;
+        }*/
+        .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50%;position: fixed;z-index: 99999999999;}
+    </style>
 </head>
 <body>
-	<div class="search clearFix">
-		<a href="search2.html">
-			<input name="search" type="search" id="search-s" value="搜索商品" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='搜索商品';" onfocus="if(this.value=='搜索商品')value='';" value="搜索商品" class="fl"/>
-			<span class="fl" id="search-q">
-				搜索
-			</span>
-		</a>
-	</div>
-	<nav class="clearFix">
-		<ul id="classification" class="fl">
-			<li class="white" id="sss">新鲜蔬菜</li>
-		</ul>
-		<div id="xxx">
-			<ul id="detailed" class="fr">
-				<!-- <li>
-					<a href="javasrcipt:;" class="clearFix">
-						<img class="dd" src="images/分类1.jpeg" alt="" />
-						<div class="jies">
-							<i class="fl"></i>
-							<span class="introduce">
-								原产石家庄
-							</span>
-						</div>
-						<div class="fl" id="money">
-							￥
-							<b>17.8</b>
-						</div>
-						<div class="fl sell">
-							已售519笔
-						</div>
-					</a>
-					<div class="fl" id="char"></div>
-				</li> -->
-			</ul>
-		</div>
-	</nav>
-	<footer class="clearFix">
-		<ul class="clearFix">
-			<li class="home">
-				<a href="javasrcipt:;">
-					<img src="images/home.png" />
-					<span>
-						首页
-					</span>
-				</a>
-			</li>
-			<li class="cart">
-				<a href="javasrcipt:;">
-					<img src="images/cart.png" />
-					<span id="end">
-						购物车
-					</span>
-				</a>
-			</li>
-			<li class="integral">
-				<a href="javasrcipt:;">
-					<img src="images/Integral-mall.png" />
-					<span>
-						积分商城
-					</span>
-				</a>
-			</li>
-			<li class="search-b">
-				<a href="javasrcipt:;">
-					<img src="images/search-选中.png" />
-					<span>
-						搜索
-					</span>
-				</a>
-			</li>
-			<li class="individual">
-				<a href="javasrcipt:;">
-					<img src="images/individual.png" />
-					<span>
-						个人中心
-					</span>
-				</a>
-			</li>
-		</ul>
-	</footer>
+<div id="loading"></div>
+<div id="app">
+    <div class="weui-tab">
+        <ul class="my-navbar" style="">
+            <li class="weui-navbar__item weui-bar__item--on" href="#tab1" @click="selected2(55)">
+                <a href="">首页</a>
+            </li>
+            <li v-for="(classes,index) in gyms.categorylist" class="weui-navbar__item " :href="'#'+classes.commodity_category_id" @click="selected1(index)">
+                <a href="">{{ classes.commodity_category_name }}</a>
+            </li>
+        </ul>
+        <div class="weui-tab__bd" style="margin-top: .4rem;">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active" style="overflow-x: hidden;margin-bottom: .45rem;">
+                <div class="swiper-container"style="width: 100%; height: 160px">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"  v-for="item in img">
+                            <a :href="item.image_openurl">
+                                <img :src="item.image_address" style="width: 100%;height: 100%">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets  text-right">
+                        <span v-for="item2 in img" class="swiper-pagination-bullet"></span>
+                    </div>
+                </div>
+                <ul class="index-nav">
+                    <li class="width-20 text-center">
+                        <a href="##">
+                            <img src="./image/毛--36_01.png" alt="">
+                            <!--<img class="index-nav-img" src="./image/标签-新-36_01.png" alt="">-->
+                            <span class="size-12">私房小厨</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center" onclick="removeSpecial()">
+                        <a href="./special/special.html">
+                            <img src="./image/驴--36_01.png" alt="">
+                            <!--<img class="index-nav-img-y" src="./image/标签-圆&#45;&#45;36_01.png" alt="">-->
+                            <span class="size-12">餐饮专区</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="./activity/activity.html?id=miaosha">
+                            <img src="./image/生--36_01.png" alt="">
+                            <span class="size-12">限时秒杀</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="##">
+                            <img src="./image/活-36_01.png" alt="">
+                            <span class="size-12">高校专区</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="##">
+                            <img src="./image/网--36_01.png" alt="">
+                            <span class="size-12">特价专区</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="index-goods" v-if="miaosha.length !== 0">
+                    <li v-for="row in miaosha">
+                        <div class="" style="font-size: 12px;text-align: center;width: 100%;background-color: #ffffff">
+                            <span class="t_j">活动已结束</span>
+                            <span class="t_d">敬请期待</span>
+                            <span class="t_h"></span>
+                            <span class="t_m"></span>
+                            <span class="t_s"></span>
+                        </div>
+                        <a :href="'goods/goods-details.html?id='+row.commodity_id">
+                            <img :src="row.commodity_coverimg" alt="商品" class="index-goods-img">
+                            <img v-if="row.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="./image/72_01.png" alt="" style="position:absolute;top: 0;left: 0">
+                            <p>{{ row.commodity_name }}</p>
+                        </a>
+                        <div class="row">
+                            <span><i class="my-red">&yen;{{ row.activity_price | currency }}</i>销量：{{row.commodity_sales | num}}笔</span>
+                            <div class="my-btn btn-red" style="float: right" @click="addCart(row.commodity_id,row.commodity_coverimg,event)">加入购物车</div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="index-goods" v-if="tuijian.length !== 0">
+                    <li v-for="row in tuijian">
+                        <a :href="'goods/goods-details.html?id='+row.commodity_id">
+                            <img :src="row.commodity_coverimg" alt="商品" class="index-goods-img">
+                            <img v-if="row.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| row.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="./image/72_01.png" alt="" style="position:absolute;top: 0;left: 0">
+                            <p>{{ row.commodity_name }}</p>
+                        </a>
+                        <div class="row">
+                            <span><i class="my-red">&yen;{{ row.activity_price | currency }}</i>销量：{{row.commodity_sales | num}}笔</span>
+                            <div class="my-btn btn-red" style="float: right" @click="addCart(row.commodity_id,row.commodity_coverimg,event)">加入购物车</div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="index-footer">
+                    <li class="width-20 text-center" onclick="remove1()">
+                        <a href="./index.html">
+                            <img src="./image/首页 选中--36_01.png" alt="">
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center shopping" id="end">
+                        <a href="./shopping-cart/shopping-cart.html">
+                            <img src="./image/购物车--36_01.png" alt="">
+                            <span>购物车</span>
+                        </a>
+                        <div class="shopping-sum sum">&yen;0.00</div>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="./IntegralMall.html">
+                            <img src="./image/积分商城--36_01.png" alt="">
+                            <span>积分商城</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="./search/search.html">
+                            <img src="./image/搜索--36_01.png" alt="">
+                            <span>搜索</span>
+                        </a>
+                    </li>
+                    <li class="width-20 text-center">
+                        <a href="./userlogin/wode.html">
+                            <img src="./image/我的--36_01.png" alt="">
+                            <span>个人中心</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div v-for="classes in gyms.categorylist" :id="classes.commodity_category_id" class="weui-tab__bd-item">
+                <div class="vegetables">
+                    <div>
+                        <div class="miao" v-for="(miao,k) in miaosha" v-if="miao.commodity_category_id == classes.commodity_category_id">
+                            <a :href="'activity/activity.html?id=miaosha&class='+miao.commodity_category_id">
+                                <div class="vegetables-activity">
+                                    <div class="vegetables-activity-div">
+                                        <div>
+                                            <span><img src="./image/表.png" alt="">限时疯抢</span>
+                                            <div class="" style="font-size: 12px;text-align: center;width: 100%;background-color: #ffffff">
+                                                <span class="t_d">活动已结束</span>
+                                            </div>
+                                            <!--<span>{{ miao.commodity_name }}</span>-->
+                                        </div>
+                                        <img :src="miao.commodity_coverimg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="tui" v-for="(tejia,k) in tuijian" v-if="tejia.commodity_category_id == classes.commodity_category_id">
+                            <a :href="'activity/activity.html?id=tuijian&class='+tejia.commodity_category_id">
+                                <div class="vegetables-activity">
+                                    <div class="vegetables-activity-div">
+                                        <div>
+                                            <span><img src="./image/火.png" alt="">特价爆品</span>
+                                            <span>{{ tejia.commodity_name }}</span>
+                                        </div>
+                                        <img :src="tejia.commodity_coverimg" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="goods-list">
+                        <li v-for="(item,index) in date" v-if="item.commodity_category_id == classes.commodity_category_id">
+                            <a :href="'./goods/goods-details.html?id='+item.commodity_id">
+                                <img :src="item.commodity_coverimg" alt="">
+                                <div class="goods-list-name">
+                                    <img v-if="item.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="./image/蔬菜.png" alt="">
+                                    <img v-if="item.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="./image/蛋类--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="./image/干货--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="./image/干调--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="./image/粮油--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="./image/肉类--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="./image/水果%20%2048.png" alt="">
+                                    <img v-if="item.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="./image/母婴用品--48_01.png" alt="">
+                                    <p v-if="item.activity_describe !== undefined && item.activity_type == 'miaosha'" style="font-size: 0.26rem;display: block;height: 40px">{{ item.activity_describe }}</p>
+                                    <p v-else>{{ item.commodity_name }}</p>
+                                </div>
+                            </a>
+                            <h5>
+                                <i v-if="item.activity_price == undefined" class="my-red">&yen;{{ item.commodity_imgprice }}</i>
+                                <i v-if="item.activity_price !== undefined" class="my-red">&yen;{{ item.activity_price }}</i>
+                                <span class="">已售{{ item.commodity_sales | num}}笔</span>
+                                <div class="shopping-cart-img" @click="addCart(item.commodity_id,item.commodity_coverimg,event,classes.commodity_category_id)">
+                                    <img class="shopping-cart-img-1" src="./image/购物车-红-48_01.png" alt="">
+                                </div>
+                            </h5>
+                        </li>
+                    </ul>
+                    <h4 class="null" style="text-align: center;position: relative;top: 30%;width: 100%;">
+                        暂无商品
+                    </h4>
+                    <div style="width: 100%;float: left">
+                        <h6 class="my-text" style="text-align: center;display: none">已显示全部商品</h6>
+                        <h4 class="text-center jiazai1"><img src="./image/jiazai.gif" alt=""></h4>
+                    </div>
+                    <a href="./shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                        <img src="./image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                        <div class="shopping-sum sum">&yen;0.00</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add-1" style="position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,.3);top: 0;display: none">
+    <div style="position: fixed;width: 80px;height: 80px;background: rgba(0,0,0,.3);top: 50%;left: 50%;margin: -40px 0 0 -40px;border-radius: 8px;text-align: center">
+        <img src="./image/jiazai.gif" style="display:inline-block;margin-top: 16px">
+        <div>加载中...</div>
+    </div>
+</div>
+<script src="./js/jquery-2.1.4.js"></script>
+<script src="./js/fastclick.js"></script>
+<script src="./js/jquery-weui.js"></script>
+<script src="./js/swiper-3.4.2.min.js"></script>
+<script src="./js/jquery.fly.min.js"></script>
+<script src="./js/vue.min.js"></script>
+<script src="./js/public.js"></script>
+<script src="./js/class.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+</script>
 </body>
 </html>

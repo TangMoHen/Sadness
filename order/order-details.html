@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <!--<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">-->
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="loading"></div>
+<div id="details">
+    <div class="item-1" v-for="(item,index,k) in gyms">
+        <div class="item">
+            <div class="shopping-img">
+                <img class="img" :src="item.commodiy.commodity_coverimg" alt="">
+            </div>
+            <div class="shopping-name">
+                <p style="height: .54rem">{{ item.commodiy.commodity_name }}</p>
+                <span class="my-red">&yen;{{ item.orderInfo.order_price }}</span>
+                <div class="my-red">
+                    <i>购买数量：{{ item.orderInfo.order_buyNumber }}</i>
+                </div>
+            </div>
+        </div>
+        <h4 class="my-red"><span>商品总价:</span>&yen;{{ item.orderInfo.order_price * item.orderInfo.order_buyNumber | currency}}元</h4>
+    </div>
+    <div class="item-1">
+        <h3 class="my-red"><span>实付款:</span>&yen;{{ num1 }}元</h3>
+        <h3 class="my-red"><span>返积分:</span>{{ num2 }}分</h3>
+    </div>
+    <div class="order-date"v-for="(item,index) in gyms"  v-if="index == 0">
+        <h5>订单编号：{{ item.orderInfo.order_num }}</h5>
+        <h5>下单时间：{{ item.orderInfo.order_createTime | data}}</h5>
+        <h5  v-if="item.orderInfo.order_remark !== undefined">备注：{{ item.orderInfo.order_remark }}</h5>
+        <h5 v-else>备注：无</h5>
+    </div>
+    <a href="tel:4008799861" class="order-btn-1">
+        <img src="../image/电话48.png" alt="">
+        联系商家
+    </a>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/fastclick.js"></script>
+<script>
+    /*    $(function() {
+     FastClick.attach(document.body);
+     });*/
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/order-details.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    }
+</script>
+</body>
+</html>

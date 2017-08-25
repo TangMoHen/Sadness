@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的订单</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <!--<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">-->
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50%;position: fixed;z-index: 999999999999999;}
+    </style>
+</head>
+<body style="background-color: #f7f7f7;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+<div id="loading"></div>
+<div class="my-order" id="my-order">
+    <div class="weui-tab">
+        <ul class="my-navbar" style="">
+            <li class="weui-navbar__item weui-bar__item--on" href="#tab1"  @click="selected1(0)">
+                <a href="">全部</a>
+            </li>
+            <li class="weui-navbar__item" href="#tab2"  @click="selected1(1)">
+                <a href="">待付款</a>
+            </li>
+            <li class="weui-navbar__item " href="#tab3"  @click="selected1(2)">
+                <a href="">代发货</a>
+            </li>
+            <li class="weui-navbar__item " href="#tab4"  @click="selected1(3)">
+                <a href="">待收货</a>
+            </li>
+            <li class="weui-navbar__item " href="#tab5"  @click="selected1(4)">
+                <a href="">待评价</a>
+            </li>
+        </ul>
+        <div class="weui-tab__bd" style="margin-top: .4rem">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div v-for="item in arr"style="margin-bottom: .1rem">
+                    <div  v-for="(item1,k) in item">
+                        <div v-for="(item2,k2) in item1.List">
+                            <div v-for="(item3,k3,index) in item2" @click="jump1(item3.order_num)">
+                                <div class="item">
+                                    <div class="shopping-img">
+                                        <img class="img" :src="item3.commodity_coverimg" alt="">
+                                    </div>
+                                    <div class="shopping-name">
+                                        <p>{{ item3.commodity_name }}</p>
+                                        <span class="my-red">&yen;{{ item3.order_price }}</span>
+                                        <span class="float-right">已售{{ item3.commodity_sales | num }}笔</span>
+                                        <div class="shopping-price">
+                                            <span>购买数量：{{ item3.order_buyNumber }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-state">
+                                        {{ getStatus(item3.order_status) }}
+                                    </div>
+                                </div>
+                                <div v-if="item3.order_status === 5" class="reality text-right">
+                                    <a :href="'../goods/add-comments.html?commodityId='+item3.commodity_id+'&deliveryId='+item3.delivery_id+'&orderId='+item3.order_id">
+                                        <span class="btn order-btn">马上评价</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="reality text-right my-red">
+                            实付款：&yen;{{ item1.orderPrice }}(免费运)
+                        </h5>
+                        <div v-for="(item2,k2) in item1.List">
+                            <h5 v-for="(item3,k3,index) in item2" class="reality text-right" v-if="index == 0">
+                                <span v-if="item3.order_status === 5 || item3.order_status === 6" class="btn order-btn">再来一单</span>
+                                <span v-if="item3.order_status === 1" class="btn order-btn" @click="delete_order(item3.order_num)">删除订单</span>
+                                <span v-if="item3.order_status === 1" class="btn order-btn" @click="sum(item1.orderPrice,k)">马上付款</span>
+                                <span v-if="item3.order_status === 4" class="btn order-btn" @click="delete1(item3.order_num)">确认收货</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="jiazai1" class="text-center null">您已没有更多订单了</h6>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="my-order-null" id="my-null">
+                    <img class="null-img" src="../image/待收藏--48_01.png" alt="">
+                    <h3>您还没有相关的订单</h3>
+                    <h5>去看看大家都在买什么吧</h5>
+                    <div class="goods-recommend" v-if="tuijian.length >0">
+                        <p class="goods-recommend-title">
+                            <img src="../image/为你推荐--36_01.png" alt="">
+                            为你推荐
+                        </p>
+                        <ul class="goods-list">
+                            <li v-for="tui in tuijian">
+                                <a :href="'../goods/goods-details.html?id='+tui.commodity_id">
+                                    <img :src="tui.commodity_coverimg" alt="">
+                                    <div class="goods-list-name">
+                                        <img v-if="tui.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                                        <p>{{ tui.commodity_name }}</p>
+                                    </div>
+                                </a>
+                                <h5>
+                                    <i class="my-red">&yen;{{ tui.activity_price }}</i>
+                                    <div class="">已售{{ tui.commodity_sales | num }}笔</div>
+                                    <div class="shopping-cart-img" @click="jia(tui.commodity_id,tui.commodity_coverimg,event,'tab1')">
+                                        <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                        <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                            <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                            <div class="shopping-sum sum">&yen;0.00</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="tab2" class="weui-tab__bd-item ">
+                <div v-for="item in arr1" style="margin-bottom: .1rem">
+                    <div  v-for="(item1,k) in item">
+                        <div v-for="(item2,k2) in item1.List">
+                            <div v-for="(item3,k3,index) in item2" @click="jump1(item3.order_num)">
+                                <div class="item">
+                                    <div class="shopping-img">
+                                        <img class="img" :src="item3.commodity_coverimg" alt="">
+                                    </div>
+                                    <div class="shopping-name">
+                                        <p>{{ item3.commodity_name }}</p>
+                                        <span class="my-red">&yen;{{ item3.order_price }}</span>
+                                        <span class="float-right">已售{{ item3.commodity_sales | num }}笔</span>
+                                        <div class="shopping-price">
+                                            <span>购买数量：{{ item3.order_buyNumber }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-state">
+                                        {{ getStatus(item3.order_status) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="reality text-right my-red">
+                            实付款：&yen;{{ item1.orderPrice }}(免费运)
+                        </h5>
+                        <div v-for="(item2,k2) in item1.List">
+                            <h5 v-for="(item3,k3,index) in item2" class="reality text-right" v-if="index == 0">
+                                <span v-if="item3.order_status === 5" class="btn order-btn">再来一单</span>
+                                <span v-if="item3.order_status === 1" class="btn order-btn" @click="delete_order(item3.order_num)">删除订单</span>
+                                <span v-if="item3.order_status === 1" class="btn order-btn" @click="sum(item1.orderPrice,k)">马上付款</span>
+                                <span v-if="item3.order_status === 4" class="btn order-btn" @click="delete1(item3.order_num)">确认收货</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="jiazai12" class="text-center null">您已没有更多订单了</h6>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="my-order-null" id="my-null1">
+                    <img class="null-img" src="../image/待付款--48_01.png" alt="">
+                    <h3>您还没有相关的订单</h3>
+                    <h5>去看看大家都在买什么吧</h5>
+                    <div class="goods-recommend" v-if="tuijian.length >0">
+                        <p class="goods-recommend-title">
+                            <img src="../image/为你推荐--36_01.png" alt="">
+                            为你推荐
+                        </p>
+                        <ul class="goods-list">
+                            <li v-for="tui in tuijian">
+                                <a :href="'../goods/goods-details.html?id='+tui.commodity_id">
+                                    <img :src="tui.commodity_coverimg" alt="">
+                                    <div class="goods-list-name">
+                                        <img v-if="tui.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                                        <p>{{ tui.commodity_name }}</p>
+                                    </div>
+                                </a>
+                                <h5>
+                                    <i class="my-red">&yen;{{ tui.activity_price }}</i>
+                                    <div class="">已售{{ tui.commodity_sales | num }}笔</div>
+                                    <div class="shopping-cart-img" @click="jia(tui.commodity_id,tui.commodity_coverimg,event,'tab2')">
+                                        <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                        <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                            <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                            <div class="shopping-sum sum">&yen;0.00</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="tab3" class="weui-tab__bd-item">
+                <div v-for="item in arr2" style="margin-bottom: .1rem">
+                    <div  v-for="(item1,k) in item">
+                        <div v-for="(item2,k2) in item1.List">
+                            <div v-for="(item3,k3,index) in item2" @click="jump1(item3.order_num)">
+                                <div class="item">
+                                    <div class="shopping-img">
+                                        <img class="img" :src="item3.commodity_coverimg" alt="">
+                                    </div>
+                                    <div class="shopping-name">
+                                        <p>{{ item3.commodity_name }}</p>
+                                        <span class="my-red">&yen;{{ item3.order_price }}</span>
+                                        <span class="float-right">已售{{ item3.commodity_sales | num }}笔</span>
+                                        <div class="shopping-price">
+                                            <span>购买数量：{{ item3.order_buyNumber }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-state">
+                                        {{ getStatus(item3.order_status) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="reality text-right my-red">
+                            实付款：&yen;{{ item1.orderPrice }}(免费运)
+                        </h5>
+                        <div v-for="(item2,k2) in item1.List">
+                            <h5 v-for="(item3,k3,index) in item2" class="reality text-right" v-if="index == 0">
+                                <span v-if="item3.order_status === 5" class="btn order-btn">再来一单</span>
+                                <span v-if="item3.order_status === 1" class="btn order-btn" @click="delete_order(item3.order_num)">删除订单</span>
+                                <span v-if="item3.order_status === 4" class="btn order-btn" @click="delete1(item3.order_num)">确认收货</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="jiazai13" class="text-center null">您已没有更多订单了</h6>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="my-order-null" id="my-null2">
+                    <img class="null-img" src="../image/待发货--48_01.png" alt="">
+                    <h3>您还没有相关的订单</h3>
+                    <h5>去看看大家都在买什么吧</h5>
+                    <div class="goods-recommend" v-if="tuijian.length >0">
+                        <p class="goods-recommend-title">
+                            <img src="../image/为你推荐--36_01.png" alt="">
+                            为你推荐
+                        </p>
+                        <ul class="goods-list">
+                            <li v-for="tui in tuijian">
+                                <a :href="'../goods/goods-details.html?id='+tui.commodity_id">
+                                    <img :src="tui.commodity_coverimg" alt="">
+                                    <div class="goods-list-name">
+                                        <img v-if="tui.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                                        <p>{{ tui.commodity_name }}</p>
+                                    </div>
+                                </a>
+                                <h5>
+                                    <i class="my-red">&yen;{{ tui.activity_price }}</i>
+                                    <div class="">已售{{ tui.commodity_sales | num }}笔</div>
+                                    <div class="shopping-cart-img" @click="jia(tui.commodity_id,tui.commodity_coverimg,event,'tab3')">
+                                        <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                        <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                            <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                            <div class="shopping-sum sum">&yen;0.00</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="tab4" class="weui-tab__bd-item">
+                <div v-for="item in arr3" style="margin-bottom: .1rem">
+                    <div  v-for="(item1,k) in item">
+                        <div v-for="(item2,k2) in item1.List">
+                            <div v-for="(item3,k3,index) in item2" @click="jump1(item3.order_num)">
+                                <div class="item">
+                                    <div class="shopping-img">
+                                        <img class="img" :src="item3.commodity_coverimg" alt="">
+                                    </div>
+                                    <div class="shopping-name">
+                                        <p>{{ item3.commodity_name }}</p>
+                                        <span class="my-red">&yen;{{ item3.order_price }}</span>
+                                        <span class="float-right">已售{{ item3.commodity_sales | num }}笔</span>
+                                        <div class="shopping-price">
+                                            <span>购买数量：{{ item3.order_buyNumber }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-state">
+                                        {{ getStatus(item3.order_status) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="reality text-right my-red">
+                            实付款：&yen;{{ item1.orderPrice }}(免费运)
+                        </h5>
+                        <div v-for="(item2,k2) in item1.List">
+                            <h5 v-for="(item3,k3,index) in item2" class="reality text-right" v-if="index == 0">
+                                <span v-if="item3.order_status === 5" class="btn order-btn">再来一单</span>
+                                <span v-if="item3.order_status === 4" class="btn order-btn" @click="delete1(item3.order_num)">确认收货</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="jiazai14" class="text-center null">您已没有更多订单了</h6>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="my-order-null" id="my-null3">
+                    <img class="null-img" src="../image/待收货--48_01.png" alt="">
+                    <h3>您还没有相关的订单</h3>
+                    <h5>去看看大家都在买什么吧</h5>
+                    <div class="goods-recommend" v-if="tuijian.length >0">
+                        <p class="goods-recommend-title">
+                            <img src="../image/为你推荐--36_01.png" alt="">
+                            为你推荐
+                        </p>
+                        <ul class="goods-list">
+                            <li v-for="tui in tuijian">
+                                <a :href="'../goods/goods-details.html?id='+tui.commodity_id">
+                                    <img :src="tui.commodity_coverimg" alt="">
+                                    <div class="goods-list-name">
+                                        <img v-if="tui.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                                        <p>{{ tui.commodity_name }}</p>
+                                    </div>
+                                </a>
+                                <h5>
+                                    <i class="my-red">&yen;{{ tui.activity_price }}</i>
+                                    <div class="">已售{{ tui.commodity_sales | num }}笔</div>
+                                    <div class="shopping-cart-img" @click="jia(tui.commodity_id,tui.commodity_coverimg,event,'tab4')">
+                                        <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                        <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                            <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                            <div class="shopping-sum sum">&yen;0.00</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="tab5" class="weui-tab__bd-item">
+                <div v-for="item in arr4" style="margin-bottom: .1rem">
+                    <div  v-for="(item1,k) in item">
+                        <div v-for="(item2,k2) in item1.List">
+                            <div v-for="(item3,k3,index) in item2" @click="jump1(item3.order_num)">
+                                <div class="item">
+                                    <div class="shopping-img">
+                                        <img class="img" :src="item3.commodity_coverimg" alt="">
+                                    </div>
+                                    <div class="shopping-name">
+                                        <p>{{ item3.commodity_name }}</p>
+                                        <span class="my-red">&yen;{{ item3.order_price }}</span>
+                                        <span class="float-right">已售{{ item3.commodity_sales | num }}笔</span>
+                                        <div class="shopping-price">
+                                            <span>购买数量：{{ item3.order_buyNumber }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-state">
+                                        {{ getStatus(item3.order_status) }}
+                                    </div>
+                                </div>
+                                <div v-if="item3.order_status === 5" class="reality text-right">
+                                    <a :href="'../goods/add-comments.html?commodityId='+item3.commodity_id+'&deliveryId='+item3.delivery_id+'&orderId='+item3.order_id">
+                                        <span class="btn order-btn">马上评价</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="reality text-right my-red">
+                            实付款：&yen;{{ item1.orderPrice }}(免费运)
+                        </h5>
+                        <div v-for="(item2,k2) in item1.List">
+                            <h5 v-for="(item3,k3,index) in item2" class="reality text-right" v-if="index == 0">
+                                <span v-if="item3.order_status === 5 || item3.order_status === 6" class="btn order-btn">再来一单</span>
+                                <span v-if="item3.order_status === 4" class="btn order-btn" @click="delete1(item3.order_num)">确认收货</span>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="jiazai15" class="text-center null">您已没有更多订单了</h6>
+                <div class="weui-loadmore">
+                    <i class="weui-loading"></i>
+                    <span class="weui-loadmore__tips">正在加载</span>
+                </div>
+                <div class="my-order-null" id="my-null4">
+                    <img class="null-img" src="../image/待评价。48_01.png" alt="">
+                    <h3>您还没有相关的订单</h3>
+                    <h5>去看看大家都在买什么吧</h5>
+                    <div class="goods-recommend" v-if="tuijian.length >0">
+                        <p class="goods-recommend-title">
+                            <img src="../image/为你推荐--36_01.png" alt="">
+                            为你推荐
+                        </p>
+                        <ul class="goods-list">
+                            <li v-for="tui in tuijian">
+                                <a :href="'../goods/goods-details.html?id='+tui.commodity_id">
+                                    <img :src="tui.commodity_coverimg" alt="">
+                                    <div class="goods-list-name">
+                                        <img v-if="tui.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                        <img v-if="tui.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                                        <img v-if="tui.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                                        <p>{{ tui.commodity_name }}</p>
+                                    </div>
+                                </a>
+                                <h5>
+                                    <i class="my-red">&yen;{{ tui.activity_price }}</i>
+                                    <div class="">已售{{ tui.commodity_sales | num }}笔</div>
+                                    <div class="shopping-cart-img" @click="jia(tui.commodity_id,tui.commodity_coverimg,event,'tab5')">
+                                        <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                    </div>
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                        <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                        <div class="shopping-sum sum">&yen;0.00</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add-1" style="position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,.3);top: 0;display: none">
+        <div style="position: fixed;width: 80px;height: 80px;background: rgba(0,0,0,.3);top: 50%;left: 50%;margin: -40px 0 0 -40px;border-radius: 8px;text-align: center">
+            <img src="../image/jiazai.gif" style="display:inline-block;margin-top: 16px">
+            <div>加载中...</div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/fastclick.js"></script>
+<script>
+    /*    $(function() {
+     FastClick.attach(document.body);
+     });*/
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/jquery.fly.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/my-order.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    }
+</script>
+</body>
+</html>

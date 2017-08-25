@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <!--<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">-->
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50%;position: fixed;z-index: 9999999999999999999999999999999999;}
+    </style>
+</head>
+<body style="margin-bottom: .48rem">
+<div id="loading"></div>
+<div id="goods-details">
+    <div class="goods-details" v-if="proId !== undefined" style="overflow: auto">
+        <div class="goods-img">
+            <img class="goods-img-1" :src="goods.commodity_coverimg" alt="">
+            <img v-if="goods.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="../image/72_01.png" alt="" style="position:absolute;top: 0;left: 0">
+        </div>
+        <div class="name">
+            <div class="name-price">
+                <h4 v-if="goods.activity_describe !== undefined && goods.activity_type == 'miaosha'">{{ goods.activity_describe }}</h4>
+                <h4 v-else>{{ goods.commodity_name }}</h4>
+                <span v-if="goods.activity_price == undefined" class="float-left my-red"><span>&yen;{{ goods.commodity_imgprice | currency }}</span></span>
+                <span v-if="goods.activity_price !== undefined" class="float-left my-red"><span>&yen;{{ goods.activity_price | currency }}</span></span>
+                <span class="float-right">已售出<i>{{ goods.commodity_sales | num}}</i>笔</span>
+            </div>
+            <div class="note">
+                <div>备注：{{ goods.commodity_description_word }}</div>
+                温馨提示：<span class="my-red">本商品一经签收，若无质量问题，概不退换</span>
+            </div>
+        </div>
+        <div class="goods-note" v-if="goods.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263aa'">
+            <div class="float-left goods-note-img">
+                <img src="../image/闹钟--48_01.png" alt="">
+            </div>
+            <div class="float-left goods-note-note">
+                <p>上午8：00之前下单，当日上午10点送达</p>
+                <p>上午8：00之后下单，次日上午10点送达</p>
+                <h5 class="my-red" style="font-weight: 800">前三单下单，返现金红包10元(可提现)</h5>
+            </div>
+        </div>
+        <div v-else class="goods-note" >
+            <div class="float-left goods-note-img">
+                <img src="../image/闹钟--48_01.png" alt="">
+            </div>
+            <div class="float-left goods-note-note">
+                <p>上午11：00之前下单，当日下午5点送达</p>
+                <p>上午11：00之后下单，次日下午5点送达</p>
+            </div>
+        </div>
+        <div class="goods-state" v-if="goods.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a' || goods.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263aa'">
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                满68元起送
+            </span>
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                提前预定
+            </span>
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                配送上门
+            </span>
+        </div>
+        <div class="goods-state" v-else>
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                免运费
+            </span>
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                提前预定
+            </span>
+            <span>
+                <img src="../image/确定--36_01.png" alt="">
+                配送到自提网点
+            </span>
+        </div>
+        <div v-if="comment !== undefined">
+            <div class="goods-comment">
+                <div style="padding-left: .15rem;padding-right: .15rem">
+                    <span class="title">商品评价</span>
+                    <span class="float-right good">好评率99%</span>
+                </div>
+                <div class="user" v-if="user !== undefined">
+                    <div class="float-left tou">
+                        <img :src="user.user_info_headPortrait" alt="" class="">
+                    </div>
+                    <div class="float-left" style="line-height: .3rem">
+                        <span>{{ user.user_info_nick }}</span>
+                    </div>
+                    <div class="float-left">
+                        <span class="star">
+                            <img src="../image/五星--36_01.png" alt="">
+                        </span>
+                        <span class="star">
+                                <img src="../image/五星--36_01.png" alt="">
+                            </span>
+                        <span class="star">
+                                <img src="../image/五星--36_01.png" alt="">
+                            </span>
+                        <span class="star">
+                                <img src="../image/五星--36_01.png" alt="">
+                            </span>
+                        <span class="star">
+                                <img src="../image/五星--36_01.png" alt="">
+                            </span>
+                    </div>
+                    <div class="float-right" style="line-height: .3rem">
+                        <span>{{ user.user_info_createTime | data}}</span>
+                    </div>
+                </div>
+                <div class="goods-comment-body">
+                    {{ comment.commodity_comment_body  }}
+                </div>
+                <div class="text-center">
+                    <div class="my-btn btn-red" style="border-radius:26px;padding: .05rem .1rem">
+                        <a style="color: #ffffff" :href="'./comment-list.html?commodityId='+goods.commodity_id">
+                            查看更多评论
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="comment" v-if="comment == undefined" style="height: 100%;overflow: auto;border-bottom: .09rem solid #d4d4d4">
+                <h4 class="text-center">商品评价</h4>
+                <h5 class="text-center">此商品暂无评论</h5>
+            </div>
+        </div>
+        <div class="introduce" v-if="img1 !== 0" style="padding: 0">
+            <div class="title" style="padding: .1rem .15rem">商品详情</div>
+            <div v-for="image in img" v-if="image.image_type === 4">
+                <img :src="image.image_address" alt="" style="width: 100%">
+            </div>
+        </div>
+        <div class="goods-recommend">
+            <p class="goods-recommend-title" v-if="gyms1">
+                <img src="../image/为你推荐--36_01.png" alt="">
+                为你推荐
+            </p>
+            <ul class="goods-list">
+                <li v-for="row in gyms" v-if="row.commodity_category_id == goods.commodity_category_id">
+                    <a :href="'./goods-details.html?id='+ row.commodity_id">
+                        <img :src="row.commodity_coverimg" alt="">
+                        <div class="goods-list-name">
+                            <img v-if="row.commodity_category_id == '16b82e4b-660c-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                            <img v-if="row.commodity_category_id == 'e344984e-661f-11e7-ae62-525400aa263a'" src="../image/蛋类--48_01.png" alt="">
+                            <img v-if="row.commodity_category_id == '873d4baa-6622-11e7-ae62-525400aa263a'" src="../image/干货--48_01.png" alt="">
+                            <img v-if="row.commodity_category_id == '87cd6c67-66cc-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                            <img v-if="row.commodity_category_id == '7c190a80-66cc-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                            <img v-if="row.commodity_category_id == 'f745c2b3-661f-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                            <img v-if="row.commodity_category_id == '25d6e5e1-660c-11e7-ae62-525400aa263a'" src="../image/水果%20%2048.png" alt="">
+                            <img v-if="row.commodity_category_id == 'ed4fabc0-66d9-11e7-ae62-525400aa263a'" src="../image/母婴用品--48_01.png" alt="">
+                            <p>{{ row.commodity_name }}</p>
+                        </div>
+                    </a>
+                    <h5>
+                        <i class="my-red">&yen;{{ row.activity_price | currency }}</i>
+                        <div class="">已售{{ row.commodity_sales | num }}笔</div>
+                        <div class="shopping-cart-img" @click="jia(row.commodity_id,row.commodity_coverimg,event)">
+                            <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                        </div>
+                    </h5>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="goods-details-footer">
+        <div class="goods-details-footer-img text-center" onclick="removeIndex()">
+            <a href="../index.html">
+                <img src="../image/首页灰色--36_01.png" alt="">
+                <div>首页</div>
+            </a>
+        </div>
+        <div class="goods-details-footer-img text-center">
+            <a href="tel:4008799861">
+                <img src="../image/客服--36_01.png" alt="">
+                <div>客服</div>
+            </a>
+        </div>
+        <div v-show="proId == show.commodity_id" class="goods-details-footer-img text-center" id="div1" onclick="btn()">
+            <img src="../image/五星--36_01.png" alt="">
+            <div>已收藏</div>
+        </div>
+        <div v-show="proId !== show.commodity_id" class="goods-details-footer-img text-center" id="div2" onclick="btn1()">
+            <img src="../image/收藏灰色--36_01.png" alt="">
+            <div>收藏</div>
+        </div>
+        <div class="btn-2" @click="jia(goods.commodity_id,goods.commodity_coverimg,event)">
+            加入购物车
+        </div>
+<!--        <div class="btn-1" data-toggle="modal" data-target="#myModal2">
+            立即购买
+        </div>-->
+    </div>
+    <a id="end" href="../shopping-cart/shopping-cart.html" class="" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+        <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px">
+        <div class="shopping-sum sum">&yen;0.00</div>
+    </a>
+    <!--<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="position: fixed;bottom: 0;margin: 0;width: 100%;">
+            <div class="modal-content">
+                <div class="modal-header" style="border: 0;position: relative">
+                    <button type="button" data-dismiss="modal" aria-hidden="true" style="border: 0; position: absolute;top: 10px;right: 10px;z-index: 9999999;background-color: #ffffff">
+                        <img src="../image/关闭.png" style="width: 26px;height: 26px">
+                    </button>
+                    <div class="col-xs-4" style="position: relative">
+                        <div style="width: 100%;height: 74px;position: relative">
+                            <img :src="goods.commodity_coverimg" alt="" class="img-responsive" style="position: absolute;width: 104px;height: 104px;top: -30px;border-radius: 8px ">
+                            <img v-if="goods.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| goods.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="../image/48_01.png" alt="" style="position:absolute;top: -31px;left: 0">
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <h5 v-if="goods.activity_price == undefined" class="modal-title text-left my-red" id="myModalLabel2"><span style="font-size: 24px">&yen;</span><span>{{ goods.commodity_imgprice | currency }}</span>元</h5>
+                        <h5 v-if="goods.activity_price !== undefined" class="modal-title text-left my-red" id="myModalLabel21"><span style="font-size: 24px">&yen;</span><span>{{ goods.activity_price | currency }}</span>元</h5>
+                        <h5 class="modal-title text-left" id="myModalLabel12">{{ goods.commodity_name }}</h5>
+                    </div>
+                </div>
+                <div class="modal-body" style="background-color: #eeeeee;margin-bottom: 100px">
+                    <div>
+                        <span>购买数量：</span>
+                        <span class="float-right" style="width: 88px;height: 25px">
+                            <input type="hidden" id="shangpin2" :value="goods.commodity_id">
+                            <input type="hidden" class="ddd" value="5">
+                            <input class="min" name="" type="button" value="-" style="border: none;width: 23px;height: 24px"/>
+                            <input style="width: 30px;border: 0;background-color: #eeeeee" id="num2" class="text_box text-center" name="" type="text" value="1"  disabled="disabled" readonly="readonly" style="border: 0;width: 32px;height: 24px" />
+                            <input class="add" name="" type="button" value="+" style="border: none;width: 23px;height: 24px"/>
+                        </span>
+                    </div>
+                </div>
+                <div style="width: 100%;">
+                    &lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">关闭&ndash;&gt;
+                    &lt;!&ndash;</button>&ndash;&gt;
+                    <button type="button" class="btn  btn-lg btn-block" id="ok2"  data-dismiss="modal" aria-hidden="true" style="background: #e02e24 ;color: #FFFFFF;width: 100%;border-radius: 0">
+                        确认
+                    </button>
+                </div>
+            </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+        </div>&lt;!&ndash; /.modal &ndash;&gt;
+    </div>-->
+
+</div>
+<div id="add-1" style="position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,.3);top: 0;display: none">
+    <div style="position: fixed;width: 80px;height: 80px;background: rgba(0,0,0,.3);top: 50%;left: 50%;margin: -40px 0 0 -40px;border-radius: 8px;text-align: center">
+        <img src="../image/jiazai.gif" style="display:inline-block;margin-top: 16px">
+        <div>加载中...</div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/jquery.fly.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/goods-details.js"></script>
+<script src="../js/removeIndex.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    }
+</script>
+</body>
+</html>

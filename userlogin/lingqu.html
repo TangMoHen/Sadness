@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>领取优惠券</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="../css/demos.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active" >
+    <div class="base-list" v-for="vm in dele" :id="vm.coupons_id">
+        <div class="image">
+            <img src="../image/优惠券%20%20蓝.png">
+        </div>
+        <div class="discount">
+            <div class="youhuijuan">
+                <h4>满<span style="font-size: .46rem">{{ vm.coupons_conditions }}</span>元减{{ vm.coupons_reduce }}元</h4>
+            </div>
+        </div>
+        <div class="add-coupons" @click="add(vm.coupons_id,vm.is)" style="position: absolute;top: .5rem;right: .3rem;font-size: .14rem;z-index: 99999999999">
+            {{ stat(vm.is) }}
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/lingqu.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    }
+</script>
+</html>

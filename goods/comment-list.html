@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有评论</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: #eee">
+<div id="comment-list">
+    <div class="goods-comment"  v-for="item in commentList" style="background-color: #ffffff">
+        <div class="user" style="border: 0">
+            <div class="float-left tou">
+                <img :src="item.user_info_headPortrait" alt="" class="">
+            </div>
+            <div class="float-left" style="line-height: .3rem">
+                <span>{{ item.user_info_nick }}</span>
+            </div>
+            <div class="float-left">
+            <!--<span class="star" v-for="n in item.commodity_comment_score">
+                <img src="../image/五星&#45;&#45;36_01.png" alt="">
+            </span>-->
+            </div>
+            <div class="float-right" style="line-height: .3rem">
+                <span>{{ item.user_info_createTime | data}}</span>
+            </div>
+        </div>
+        <div class="goods-comment-body" style="border: 0;margin-bottom: .1rem">
+            {{ item.commodity_comment_body  }}
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/comment-list.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+</script>
+</body>
+</html>

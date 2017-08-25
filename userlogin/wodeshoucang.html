@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的收藏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .goods-recommend-title {
+        height: .5rem;
+        line-height: .5rem;
+        width: 100%;
+        font-size: .14rem;
+        text-align: center;
+        background-color: #FFFFFF;
+        letter-spacing: 2px;
+    }
+
+    .goods-recommend-title img {
+        width: .22rem;
+        height: .22rem;
+        position: relative;
+        top: .06rem;
+        right: .05rem;
+    }
+
+    .goods-list {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .goods-list li {
+        width: 1.842rem;
+        float: left;
+        border-bottom: .03rem solid #eeeeee;
+    }
+
+    .goods-list li:nth-child(2n+1) {
+        border-right: 0.03rem solid #eeeeee;
+    }
+
+    .goods-list li img {
+        width: 100%;
+        height: 1.84rem;
+        display: block;
+    }
+
+    .goods-list .goods-list-name img {
+        width: .15rem;
+        height: .15rem;
+        position: absolute;
+        top: 12px;
+        left: 10px;
+    }
+
+    .goods-list-name {
+        padding: .1rem .08rem;
+        font-size: .12rem;
+        position: relative;
+        background-color: #FFFFFF;
+    }
+
+    .goods-list-name p {
+        text-indent: 25px;
+        height: .38rem;
+    }
+
+    .my-order .null {
+        font-weight: 500;
+        margin-top: .1rem;
+    }
+
+    .my-order-null {
+        width: 100%;
+        text-align: center;
+        background-color: #f2f2f2;
+        height: 3rem;
+    }
+
+    .my-order-null .null-img {
+        margin-top: 1.06rem;
+    }
+
+    .my-order-null h3 {
+        font-size: .15rem;
+        font-weight: 500;
+        margin-bottom: .3rem;
+        color: #cecece;
+    }
+
+    .my-order-null h5 {
+        font-size: .12rem;
+        font-weight: 500;
+    }
+
+    .my-order-null .goods-list li {
+        width: 1.845rem;
+    }
+
+    .my-order .weui-tab__bd-item {
+        margin-bottom: 0;
+    }
+
+    .my-order-null .goods-recommend {
+        text-align: left;
+    }
+
+    .my-red {
+        color: #ff0000;
+    }
+
+    .like-item {
+        height: 1.35rem;
+        width: 100%;
+    }
+
+    .like-item-goods-img {
+        padding-top: .05rem;
+        padding-left: .1rem;
+        position: absolute;
+        height: 1.25rem;
+    }
+
+    .like-item-goods-img img {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .like-item-goods-text {
+        padding-left: 1.4rem;
+        padding-top: .13rem;
+    }
+
+    .like-item-goods-name {
+        color: #333;
+        font-size: .14rem;
+        line-height: .18rem;
+        vertical-align: bottom;
+        max-height: .345rem;
+        overflow-y: hidden;
+    }
+
+    .like-item-goods-count {
+        margin-top: .22rem;
+        color: #ff0000;
+        font-size: .18rem;
+    }
+
+    .like-item-goods-count span {
+        color: #9c9c9c;
+        font-size: .16rem;
+        margin-left: .5rem;
+    }
+
+    .like-item-goods-bottom {
+        padding-left: 1.4rem;
+        padding-right: .12rem;
+        position: absolute;
+    }
+
+    .like-item-goods-bottom img {
+        width: .18rem;
+        color: #fff;
+        border-radius: .04rem;
+        margin-left: 1.8rem;
+        margin-top: .2rem;
+        display: -webkit-flex;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+    }
+</style>
+<body>
+<div id="pc">
+    <div class="like-item" v-for="item in gyms" v-if="item.length !==0">
+        <div class="like-item-goods-img"><img :src="item.commodity_coverimg"></div>
+        <div class="like-item-goods-text">
+            <div class="like-item-goods-name">{{ item.commodity_name }}</div>
+            <div class="like-item-goods-count">&yen;{{ item.commodity_imgprice }}<span>已售520笔</span></div>
+        </div>
+        <div class="like-item-goods-bottom" @click="sss(item.commodity_id)">
+            <img src="../image/删除--36_01.png">
+        </div>
+    </div>
+    <div class="my-order-null" style="display: block" v-else>
+        <img class="null-img" src="../image/文件夹--72_01.png" alt="">
+        <h3>你还没有收藏过商品</h3>
+
+        <div class="goods-recommend">
+            <p class="goods-recommend-title">
+                <img src="../image/喜欢--48_01.png" alt="">
+                猜你喜欢
+            </p>
+            <ul class="goods-list">
+                <li>
+                    <img src="../image/logo背景图.jpg" alt="">
+                    <div class="goods-list-name">
+                        <img src="../image/地址--72_01.png" alt="">
+                        <p>行唐现摘红啤梨大果16只装（单果120克-200克）</p>
+                        <div class="">
+                            <span class="my-red">&yen;0.1</span>
+                            <div class="" style="float: right">已售519笔</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="../image/logo背景图.jpg" alt="">
+                    <div class="goods-list-name">
+                        <img src="../image/地址--72_01.png" alt="">
+                        <p>行唐现摘红啤梨大果16只装（单果120克-200克）</p>
+                        <div class="">
+                            <span class="my-red">&yen;0.1</span>
+                            <div class="" style="float: right">已售519笔</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="../image/logo背景图.jpg" alt="">
+                    <div class="goods-list-name">
+                        <img src="../image/地址--72_01.png" alt="">
+                        <p>行唐现摘红啤梨大果16只装（单果120克-200克）</p>
+                        <div class="">
+                            <span class="my-red">&yen;0.1</span>
+                            <div class="" style="float: right">已售519笔</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="../image/logo背景图.jpg" alt="">
+                    <div class="goods-list-name">
+                        <img src="../image/地址--72_01.png" alt="">
+                        <p>行唐现摘红啤梨大果16只装（单果120克-200克）</p>
+                        <div class="">
+                            <span class="my-red">&yen;0.1</span>
+                            <div class="" style="float: right">已售519笔</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/wodeshouchang.js"></script>
+<script>
+    document.documentElement.style.fontSize = 100 * document.documentElement.clientWidth / 375 + 'px';
+    window.onresize = function () {
+        document.documentElement.style.fontSize = 100 * document.documentElement.clientWidth / 375 + 'px'
+    }
+</script>
+</html>

@@ -1,3 +1,22 @@
+.top{
+	width: 10.8rem;
+	height: .9rem;
+	text-align: center;
+	line-height: .9rem;
+	font-size: .48rem;
+	background: rgba(0,0,0,0.3);
+	color: #fff;
+}
+.top img{
+	margin-top: .25rem;
+	margin-right: .2rem;
+	width: .4rem;
+	height: .4rem;
+	padding-left: .2rem;
+	
+}
+
+
 .swiper-container{
     margin: .43rem 0;
 }

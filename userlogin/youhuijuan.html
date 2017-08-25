@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>优惠券</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../css/weui.min.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="../css/demos.css">
+    <link rel="stylesheet" href="../css/css.css">
+  </head>
+  <body ontouchstart>
+    <div class="weui-tab" >
+      <div class="weui-navbar">
+        <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+         <span style="padding: .14rem 0;"> 未使用</span>
+        </a>
+        <a class="weui-navbar__item" href="#tab2">
+          <span style="padding: .14rem 0">已使用</span>
+        </a>
+        <a class="weui-navbar__item" href="#tab3">
+          <span style="padding: .14rem 0">已过期</span>
+        </a>
+      </div>
+      <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active" >
+          <div class="base-list" v-for="vm in dele" v-if="dele.length !== 0">
+            <div class="image">
+              <img src="../image/优惠券%20%20蓝.png">
+            </div>
+            <div class="discount">
+              <div class="youhuijuan">
+                <h4>满<span style="font-size: .46rem">{{ vm.coupons_conditions }}</span>元减{{ vm.coupons_reduce }}元</h4>
+              </div>
+              <p>使用期限：<span>{{ vm.coupons_beginTime |data}}</span>~<span>{{ vm.coupons_endTime | data}}</span></p>
+              <p style="left: 3.2rem;font-size: .12rem">{{ stat(vm.coupons_receive_status )}}</p>
+            </div>
+          </div>
+          <div class="no-coupon" v-else>
+            <div class="no-coupons-icon"></div>
+            <p>暂无该类优惠券</p>
+            <br>
+            <h3>去领取</h3>
+          </div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+          <div class="base-list" v-for="has in yishiyong" v-if="yishiyong.length !== 0">
+            <div v-if="has.coupons_receive_status == 0">
+              <div class="image">
+                <img src="../image/优惠券%20%20红.png">
+              </div>
+              <div class="discount">
+                <div class="youhuijuan">
+                  <h4>满<span style="font-size: .46rem">{{ has.coupons_conditions }}</span>元减{{ has.coupons_reduce }}元</h4>
+                </div>
+                <p>使用期限：<span>{{ has.coupons_beginTime |data}}</span>~<span>{{ has.coupons_endTime | data}}</span></p>
+                <p style="left: 3.2rem;font-size: .12rem">{{ stat(has.coupons_receive_status )}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="no-coupon" v-else>
+            <div class="no-coupons-icon"></div>
+            <p>暂无该类优惠券</p>
+            <br>
+            <h3>去领取</h3>
+          </div>
+        </div>
+        <div id="tab3" class="weui-tab__bd-item">
+          <div class="base-list" v-for="vm2 in yiguoqi" v-if="yiguoqi.length !== 0">
+            <div class="image">
+              <img src="../image/优惠券%20%20灰.png">
+            </div>
+            <div class="discount">
+              <div class="youhuijuan">
+                <h4>满<span style="font-size: .46rem">{{ vm2.coupons_conditions }}</span>元减{{ vm2.coupons_reduce }}元</h4>
+              </div>
+              <p>使用期限：<span>{{ vm2.coupons_beginTime |data}}</span>~<span>{{ vm2.coupons_endTime | data}}</span></p>
+              <p style="left: 3.2rem;font-size: .12rem">{{ stat(vm2.coupons_receive_status )}}</p>
+            </div>
+          </div>
+          <div class="no-coupon" v-else>
+            <div class="no-coupons-icon"></div>
+            <p>暂无该类优惠券</p>
+            <br>
+            <h3>去领取</h3>
+          </div>
+      </div>
+    </div>
+    </div>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/jquery-weui.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/youhuijuan.js"></script>
+    <script>
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+        window.onresize=function(){
+            document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收货地址</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <style>
+    </style>
+</head>
+<body style="background: #f2f2f2">
+<div id="loading"></div>
+<div class="address-main" id="form1">
+    <div class="addresses-main" v-if="dele.length !==0">
+        <ul class="addresses-list">
+            <li class="address-item-use">
+                <div class="address-item-wrap">
+                    <div class="address-item-main" v-for="delevery1 in dele">
+                        <div class="contact-name"><span>{{delevery1.delivery_consignee}}</span>&nbsp; &nbsp;{{delevery1.delivery_phone}}</div>
+                        <div class="contact-address">{{ delevery1.store_address_sheng}} {{ delevery1.store_address_shi}} {{ delevery1.store_address_qu}}&nbsp; &nbsp;{{ delevery1.store_address_info}}</div>
+                        <div class="contact-name1">{{delevery1.store_name}}</div>
+                        <div>{{delevery1.store_master_name}}:&nbsp; &nbsp;{{ delevery1.store_master_phone}}</div>
+                <div class="weui-cells weui-cells_checkbox" style="margin-top: 0">
+                    <label class="weui-cell weui-check__label">
+                        <div class="weui-cell__hd">
+                            <input type="radio" name="people" class="weui-check"  :value="delevery1.delivery_id" :checked="delevery1.delivery_isDefault == 1" id="default">{{ delevery1.delivery_isDefault == 1?'':'' }}
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>默认地址</p>
+                        </div>
+                    </label>
+                    <div class="address-item-ops-2">
+                        <div class="address-item-edit" @click="bianji(delevery1.delivery_id,delevery1.store_address_qu,delevery1.store_name)"><img src="../image/编辑--36_01.png" style=" position: absolute;width: 13px;height: 14px;top: 14px;left: 4px;"><span>编辑</span></div>
+                        <div class="address-item-delete" @click="delete1(delevery1.delivery_id)"><img src="../image/删除--36_01.png" style="    position: absolute;width: 13px;height: 14px;top: 14px;left: 4px;"><span>删除</span></div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="empty-address" v-if="dele.length == 0">
+        <div class="empty-icon"></div>
+    </div>
+    <div class="add-btn">
+        <button class="btn">
+            <img src="../image/添加--36_01.png">
+            <span>
+                添加收货地址
+            </span>
+        </button>
+    </div>
+</div>
+<div  id="btn2" class="address1">
+<div class="address">
+    <div class="address-title">添加收货地址</div>
+    <div class="address-receiver">
+        <input type="text" class="address-name" placeholder="姓名" id="consignee">
+        <input type="text" class="address-phone" placeholder="手机号" id="deliveryPhone">
+    </div>
+    <div class="weui-cells weui-cells_form" style="margin-top: 0px;height: 52px">
+        <div class="weui-cell" style="height: 31px">
+            <div class="weui-cell__hd"><label for="name" class="weui-label">选择地区</label></div>
+            <div class="weui-cell__bd" >
+                <input class="weui-input" id="start" type="text" value="河北省 石家庄市 新华区" id="city-picker">
+            </div>
+        </div>
+    </div>
+    <div class="address-main1">
+        <select id="testSelect">
+            <option>自提网点</option>
+            <option v-for="item in gyms.data" value="{{}}">{{ item.store_name}}</option>
+        </select>
+    </div>
+        <div class="address-close" onclick="btn2()">
+            <img src="../image/关闭--36_01.png">
+        </div>
+    <div class="address-save" id="ok">保存</div>
+</div>
+</div>
+<div  id="btn3" class="address2">
+    <div class="address">
+        <div class="address-title">编辑收货地址</div>
+        <div class="address-receiver">
+            <input type="text" class="address-name" placeholder="姓名" id="consignee1" :value=delevery1.delivery_consignee >
+            <input type="text" class="address-phone" placeholder="手机号" id="deliveryPhone1" :value=delevery1.delivery_phone>
+        </div>
+        <div class="weui-cells weui-cells_form" style="margin-top: 0px;height: 52px">
+            <div class="weui-cell" style="height: 31px">
+                <div class="weui-cell__hd"><label for="name" class="weui-label">选择地区</label></div>
+                <div class="weui-cell__bd" >
+                    <input class="weui-input" type="text" id="city-picker1" value="河北省 石家庄市 新华区">
+                </div>
+            </div>
+        </div>
+        <div class="address-main1">
+            <select id="testSelect1">
+                <option :value="item.store_name" v-for="item in gyms1" >{{ item.store_name}}</option>
+            </select>
+        </div>
+        <div class="address-close" onclick="btn2()">
+            <img src="../image/关闭--36_01.png">
+        </div>
+        <div class="address-save" id="ok1">保存</div>
+    </div>
+</div>
+</body>
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/jquery-weui.min.js"></script>
+<script src="../js/city-picker.js"></script>
+<script src="../js/city-picker.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/shouhuodizhiguanli.js"></script>
+<script>
+    $(".add-btn").click(function(){
+        var div = $(".address1");
+        if ( div.css("display") === "none" ) {
+            div.show();
+        } else {
+            div.hide();
+        }
+    });
+    function btn2(){
+        document.getElementById('btn2').style.display='none';
+        document.getElementById('btn3').style.display='none';
+    }
+</script>
+<script>
+
+</script>
+</html>

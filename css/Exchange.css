@@ -1,0 +1,63 @@
+nav ul li{
+    float: left;
+}
+nav ul li img{
+    display: block;
+    width:3.75rem;
+    height:3.75rem;
+}
+.commodity-name{
+    width: 3.62rem;
+    height:.53rem;
+    font-size: .14rem;
+    border-bottom: .01rem solid #d8d8d8;
+    padding-top: .13rem;
+    padding-left:.13rem;
+}
+.commodity-name .exchange{
+    padding-top: .07rem;
+    color: #676767;
+    font-size:.13rem;
+}
+.commodity-name .exchange i{
+    width:.19rem;
+    height:.19rem;
+    background: url("../images/积分72.png") no-repeat;
+    display: block;
+    margin-right:.08rem;
+    -webkit-background-size: .19rem .19rem;
+    background-size: .19rem .19rem;
+}
+.commodity-name .exchange span{
+    font-size:.18rem;
+    color: #E23E34;
+}
+.describe{
+    padding-left: .16rem;
+    padding-right: .18rem;
+    height: 2.56rem;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.describe h4{
+    padding-top: .03rem;
+    color: #6f6f6f;
+    text-align: center;
+    font-size: .12rem;
+}
+.describe p{
+    font-size: .10rem;
+    color: #bebebe;
+    text-indent: 2em;
+}
+.qd{
+    display: block;
+    width: 3.75rem;
+    height: .35rem;
+    line-height: .35rem;
+    text-align: center;
+    color: #fff;
+    background: #d81e07;
+    border-top: .02rem solid #95392e;
+    font-size: .15rem;
+}

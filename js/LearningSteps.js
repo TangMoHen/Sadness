@@ -8,7 +8,9 @@ window.onload=function(){
     var https=window.location.search;
     // console.log(https);
     // 获取https
-
+	$('#gemeover').click(function(){
+		$(".top").remove();
+	})
 
     $.ajax({
         url:`https://www.kpmaolv.com/maolv/cookbook/queryInfo${https}`,

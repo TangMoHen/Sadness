@@ -1,0 +1,92 @@
+.receiving-information{
+    width: 6.39rem;
+    height: 1.02rem;
+}
+.receiving-information .delivery-address{
+    width: .41rem;
+    padding: .22rem .3rem 0 .18rem;
+    height: .8rem;
+    text-align: center;
+    font-size: .2rem;
+    color: #a3a3a3;
+}
+.receiving-information .fill-in{
+    width: 5.5rem;
+    height: .9rem;
+    padding-top: .22rem;
+    font-size: .21rem;
+    background: url("../images/dayu_01.jpg") no-repeat 5.1rem;
+    background-size: .13rem .24rem;
+}
+.receiving-information .fill-in .phone{
+    margin-left:.3rem;
+}
+.receiving-information .fill-in a{
+    width:100%;
+    height:100%;
+    color: #000;
+}
+.receiving-information .fill-in .not-obtain a{
+    display: block;
+    width: 100%;
+    font-size: .26rem;
+    height: .9rem;
+    padding-top: .2rem;
+    text-align: center;
+    color: #897c00;
+}
+.commodity-area{
+    padding-left: .16rem;
+}
+.commodity-area .maolv{
+    height: .6rem;
+    line-height: .6rem;
+    font-size: .2rem;
+}
+.commodity-area .details{
+    height: 1.6rem;
+    padding: .23rem .15rem;
+}
+.commodity-area .details img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.commodity-area .details .js{
+    margin-left: .32rem;
+    width: 3.5rem;
+    font-size: .18rem;
+    text-align: center;
+    line-height: .4rem;
+}
+#confirm{
+    width: 5rem;
+    height: .6rem;
+    line-height: .6rem;
+    background: green;
+    margin:0 auto;
+    border-radius: .2rem;
+    font-size: .3rem;
+    text-align: center;
+    color: #fff;
+}
+.commodity-area .details .shul #mix{
+    width: .3rem;
+    height: .3rem;
+    border:none;
+}
+.commodity-area .details .shul #text{
+    width: .5rem;
+    height: .3rem;
+    font-size: .2rem;
+    line-height: .3rem;
+    border: none;
+    text-align: center;
+}
+.commodity-area .details .shul #max{
+    width: .3rem;
+    height: .3rem;
+    border:none;
+}
+.commodity-area .details .shul #zongh{
+    margin-right: .2rem;
+}

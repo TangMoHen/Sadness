@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>餐饮专区</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="special">
+    <div class="weui-tab">
+        <ul class="my-navbar" style="">
+            <li style="width: 25%;margin: 0" v-for="(classes,index) in gyms.categorylist" class="weui-navbar__item " :href="'#'+classes.commodity_category_id" @click="selected1(index)">
+                <a href="">{{ classes.commodity_category_name }}</a>
+            </li>
+        </ul>
+        <div class="weui-tab__bd" style="margin-top: .4rem;">
+            <div v-for="classes in gyms.categorylist" :id="classes.commodity_category_id" class="weui-tab__bd-item" >
+                <div class="vegetables">
+                    <ul class="goods-list">
+                        <li v-for="item in date" v-if="item.commodity_category_id == classes.commodity_category_id">
+                            <a :href="'../goods/goods-details.html?id='+item.commodity_id">
+                                <img :src="item.commodity_coverimg" alt="" class="goods-list-img">
+                                <img src="../image/48_01.png" alt="" style="position: absolute;top: 0;left: 0;width: .6rem;height: .3rem">
+                                <div class="goods-list-name">
+                                    <img v-if="item.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'" src="../image/蔬菜.png" alt="">
+                                    <img v-if="item.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'" src="../image/干调--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'" src="../image/粮油--48_01.png" alt="">
+                                    <img v-if="item.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="../image/肉类--48_01.png" alt="">
+                                    <p v-if="item.activity_describe !== undefined && item.activity_type == 'miaosha'" style="font-size: 0.26rem;display: block;height: 40px">{{ item.activity_describe }}</p>
+                                    <p v-else>{{ item.commodity_name }}</p>
+                                </div>
+                            </a>
+                            <h5>
+                                <i v-if="item.activity_price == undefined" class="my-red">&yen;{{ item.commodity_imgprice }}</i>
+                                <i v-if="item.activity_price !== undefined" class="my-red">&yen;{{ item.commodity_imgprice }}</i>
+                                <div>已售{{ item.commodity_sales | num}}笔</div>
+                                <div class="shopping-cart-img" @click="jia(item.commodity_id,item.commodity_coverimg,event,classes.commodity_category_id)">
+                                    <img class="shopping-cart-img-1" src="../image/购物车-红-48_01.png" alt="">
+                                </div>
+                            </h5>
+                        </li>
+                    </ul>
+                    <a href="../shopping-cart/shopping-cart.html" class="sum1" style="position: fixed;top: 5rem;left: .2rem;width: 36px;height: 36px;background-color: rgba(0,0,0,.3);border-radius: 50%;text-align: center;font-size: 20px;color: #FFFFFF">
+                        <img src="../image/shopping-cart.png" alt=""  style="width: 20px;height: 20px;margin-top: 7px">
+                        <div class="shopping-sum sum">&yen;0.00</div>
+                    </a>
+                    <p class="null" style="text-align: center;position: fixed;top: 30%;width: 100%;">
+                        暂无商品
+                    </p>
+                    <div style="width: 100%;float: left">
+                        <h6 class="my-text" style="text-align: center;display: none">已显示全部商品</h6>
+                        <h4 class="text-center jiazai1"><img src="../image/jiazai.gif" alt=""></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/jquery.fly.min.js"></script>
+<script src="../js/public.js"></script>
+<script src="../js/special.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+</script>
+</body>
+</html>

@@ -324,8 +324,8 @@ nav .search-goods li a .fdzq{
 	display: block;
 	width: 2rem;
 	position: absolute;
-	top: -6.95rem;
-	right: -1.6rem;
+	top: .1rem;
+	left: .1rem;
 }
 nav .search-goods li a i{
 	width: .42rem;
@@ -397,4 +397,17 @@ footer .footer{
 }
 .u-flyer{
 	z-index: 1;
+}
+
+.mani{
+	border:.01rem solid #e02e24;
+	border-radius: .15rem;
+	padding:0 .05rem;
+	background: #e02e24;
+	position: absolute;
+	right: .1rem;
+	top: -.4rem;
+	color: #fff;
+	font-size: .27rem;
+	font-weight: bolder;
 }

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加评论</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .star_bg {
+            width: 116px; height: 20px;
+            background: url(../image/st.jpg) repeat-x;
+            position: relative;
+            overflow: hidden;
+            top:0;
+            margin-left: .2rem
+        }
+        .star {
+            height: 100%; width: 24px;
+            line-height: 6em;
+            position: absolute;
+            z-index: 3;
+        }
+        .star:hover {
+            background: url(../image/st.jpg) repeat-x 0 -20px!important;
+            left: 0; z-index: 2;
+        }
+        .star_1 { left: 0; }
+        .star_2 { left: 24px; }
+        .star_3 { left: 48px; }
+        .star_4 { left: 72px; }
+        .star_5 { left: 96px; }
+        .star_1:hover { width: 24px; }
+        .star_2:hover { width: 48px; }
+        .star_3:hover { width: 72px; }
+        .star_4:hover { width: 96px; }
+        .star_5:hover { width: 120px; }
+
+        label {
+            display: block; _display:inline;
+            height: 100%; width: 100%;
+            cursor: pointer;
+            /*margin: 0;*/
+            /*padding-top: -5px;;*/
+        }
+
+        /* 幕后的英雄，单选按钮 */
+        .score { position: absolute; clip: rect(0 0 0 0); }
+        .score:checked + .star {
+            background: url(../image/st.jpg) repeat-x 0 -20px;
+            left: 0;
+            top:0;
+            z-index: 1;
+        }
+        .score_1:checked ~ .star_1 { width: 24px; }
+        .score_2:checked ~ .star_2 { width: 48px; }
+        .score_3:checked ~ .star_3 { width: 72px; }
+        .score_4:checked ~ .star_4 { width: 96px; }
+        .score_5:checked ~ .star_5 { width: 120px; }
+
+        .star_bg:hover .star {  background-image: none; }
+
+        /* for IE6-IE8 JS 交互 */
+        .star_checked {
+            background: url(../image/st.jpg) repeat-x 0 -20px;
+            left: 0; z-index: 1;
+        }
+    </style>
+</head>
+<body style="background-color: #eee">
+<div class="add-comments">
+    <div class="add-comments-level">
+        <img src="../image/图.jpg" alt="" class="goods">
+        <span class="my-hong comments-h" onclick="commentsH(0)">
+            <img id="hao1" src="../image/好评--48_01.png" alt="" class="level">
+            <img id="hao2" src="../image/好评--48_01-灰.png" alt="" class="level"  style="display: none">
+            好评
+        </span>
+        <span class="comments-h" onclick="commentsH(1)">
+            <img id="zhong1" src="../image/中评--48_01.png" alt="" class="level"  style="display: none">
+            <img id="zhong2" src="../image/中评--48_01-灰.png" alt="" class="level">
+            中评
+        </span>
+        <span class="comments-h" onclick="commentsH(2)">
+            <img id="cha1" src="../image/差评--48_01.png" alt="" class="level" style="display: none">
+            <img id="cha2" src="../image/差评--48_01-灰%20(1).png" alt="" class="level">
+            差评
+        </span>
+    </div>
+    <div class="score-title">
+        <div class="score-img">
+            <img src="../image/评价48.png" alt="">
+        </div>
+        <div class="float-left">商品评价</div>
+        <div id="starBg" class="star_bg float-left">
+            <input type="radio" id="starScore1" class="score score_1" value="1" name="score">
+            <a href="#starScore1" class="star star_1" title="差"><label for="starScore1">差</label></a>
+            <input type="radio" id="starScore2" class="score score_2" value="2" name="score">
+            <a href="#starScore2" class="star star_2" title="较差"><label for="starScore2">较差</label></a>
+            <input type="radio" id="starScore3" class="score score_3" value="3" name="score">
+            <a href="#starScore3" class="star star_3" title="普通"><label for="starScore3">普通</label></a>
+            <input type="radio" id="starScore4" class="score score_4" value="4" name="score">
+            <a href="#starScore4" class="star star_4" title="较好"><label for="starScore4">较好</label></a>
+            <input type="radio" id="starScore5" class="score score_5" value="5" name="score">
+            <a href="#5" class="star star_5" title="好"><label for="starScore5">好</label></a>
+        </div>
+    </div>
+
+    <div class="add-comments-container">
+        <textarea id="comment" placeholder="宝贝满足你的期待吗?说说他的优点和美中不足的地方吧"></textarea>
+        <div class="niming">
+            <h5 class="text-right">发表评论留下你的脚步</h5>
+        </div>
+    </div>
+    <div class="score-title">
+        <div class="score-img">
+            <img src="../image/评价-248.png" alt="">
+        </div>
+        <div class="float-left">网点评价</div>
+        <div id="starBg1" class="star_bg float-left">
+            <input type="radio" id="starScore11" class="score score_1" value="1" name="score1">
+            <a href="#starScore11" class="star star_1" title="差"><label for="starScore11">差</label></a>
+            <input type="radio" id="starScore22" class="score score_2" value="2" name="score1">
+            <a href="#starScore22" class="star star_2" title="较差"><label for="starScore22">较差</label></a>
+            <input type="radio" id="starScore33" class="score score_3" value="3" name="score1">
+            <a href="#starScore33" class="star star_3" title="普通"><label for="starScore33">普通</label></a>
+            <input type="radio" id="starScore44" class="score score_4" value="4" name="score1">
+            <a href="#starScore44" class="star star_4" title="较好"><label for="starScore44">较好</label></a>
+            <input type="radio" id="starScore55" class="score score_5" value="5" name="score1">
+            <a href="#starScore55" class="star star_5" title="好"><label for="starScore55">好</label></a>
+        </div>
+    </div>
+
+    <div class="add-comments-container">
+        <textarea id="store" placeholder="宝贝满足你的期待吗?说说他的优点和美中不足的地方吧"></textarea>
+        <div class="niming">
+            <h5 class="text-right">发表评论留下你的脚步</h5>
+        </div>
+    </div>
+    <div class="btn" id="submit">
+        确认发布
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/add-comment.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+    chapin = $('input[name="score"]:checked ').val();
+    dianpu = $('input[name="score1"]:checked ').val();
+    function commentsH(val) {
+        console.log(val);
+        $('.comments-h').removeClass('my-hong');
+        $('.comments-h').eq(val).addClass('my-hong');
+        $('.comments-h img').eq(0).hide();
+        $('.comments-h img').eq(2).hide();
+        $('.comments-h img').eq(4).hide();
+        $('.comments-h img').eq(1).show();
+        $('.comments-h img').eq(3).show();
+        $('.comments-h img').eq(5).show();
+        $('.comments-h:eq('+val+') img').eq(0).show();
+        $('.comments-h:eq('+val+') img').eq(1).hide();
+    }
+</script>
+</body>
+</html>

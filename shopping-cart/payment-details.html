@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>付款详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="../css/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui1.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: #f2f2f2">
+<div id="loading"></div>
+<div id="payment-details" class="payment-details" v-if="names !== null">
+    <div class="address" v-if="dele.length !==0">
+        <div class="address-img">
+            <img src="../image/定位--48_01.png" alt="">
+        </div>
+        <a href="../userlogin/shouhuodizhi.html">
+            <div class="address-name"  v-for="address in dele" v-if="address.delivery_isDefault === 1">
+                <h5><span>{{ address.delivery_consignee }}</span> {{ address.delivery_phone}}</h5>
+                <h5>河北省 &nbsp;{{ address.store_address_shi }}&nbsp;{{ address.store_address_qu }}&nbsp;</h5>
+                <h5>{{ address.store_address_info }}：{{ address.store_name }}</h5>
+                <input id="d_id" type="hidden" :value="address.delivery_id">
+            </div>
+            <div class="address-right">
+                》
+            </div>
+        </a>
+    </div>
+    <button v-else type="button" class="btn btn-default btn-lg btn-block" style="width: 90%;margin-left: 5%;border: 1px solid red;color: red;padding: .1rem 0;border-radius: 4px;" id="tianjia">添加收货地址</button>
+    <div style="margin-top: .05rem;padding: 0 12px;background-color: #ffffff">
+        <div style="margin-top: 10px">
+            备注：
+        </div>
+        <textarea id="orderRemake" placeholder="餐饮专区用户下单请把收货地址填写在这里:" style="margin-top: .1rem;width: 100%;font-size: .12rem;border: 0;resize:none"></textarea>
+    </div>
+    <div class="coupons-cha">
+        <span>还差<i id="cha">&yen;0</i>可以用优惠卷</span>
+        <div class="float-right coupons-btn">去购物</div>
+    </div>
+    <div v-for="item in gyms">
+        <div class="item">
+            <div class="shopping-img">
+                <img class="img" :src="item.commodity_coverimg" alt="">
+                <img v-if="item.commodity_category_id == '5096d338-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '5e355b83-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '64d7a287-6903-11e7-ae62-525400aa263a'|| item.commodity_category_id == '6b9f0aa8-6903-11e7-ae62-525400aa263a'" src="../image/48_01.png" alt="" style="position:absolute;top: 0;left: 0">
+            </div>
+            <div class="shopping-name">
+                <p v-if="item.activity_describe !== undefined && item.activity_type == 'miaosha'">{{ item.activity_describe }}</p>
+                <p v-else>{{ item.commodity_name }}</p>
+                <span v-if="item.activity_price == undefined" class="my-red">&yen;{{ item.commodity_imgprice }}</span>
+                <span v-if="item.activity_price !== undefined" class="my-red">&yen;{{ item.activity_price }}</span>
+                <span class="float-right">已售{{ item.commodity_sales }}笔</span>
+            </div>
+        </div>
+        <div class="payment-details-price">
+            <span>购买数量：</span>
+            <span class="float-right">
+                <input class="min" name="" type="button" value="-" @click="min(item)" :disabled="item.shoppingCart_quantity<2" style="border: none;width: .23rem;height: .18rem;background-color: #e0e0e0"/>
+                <input name="sum" style="width: .3rem;height: .18rem;border: 0;background-color: #ffffff;color: #e0e0e0" :value="item.shoppingCart_quantity" class="text_box text-center" name="" type="text" value="1"  disabled="disabled" readonly="readonly" />
+                <input class="add" name="" type="button" value="+" @click="greet(item)"  :disabled="item.shoppingCart_quantity>=item.commodity_limitbuy" style="border: none;width: .23rem;height: .18rem;background-color: #e0e0e0"/>
+            </span>
+        </div>
+    </div>
+    <h5 class="payment-way">
+        <span>
+            <img class="weixin" src="../image/微信支付--48_01.png" alt="">
+            微信支付
+        </span>
+        <img class="tuijian" src="../image/推荐--48_01.png" alt="">
+        <span class="float-right my-red">&radic;</span>
+    </h5>
+    <h5 class="payment-way" @click="coupons1(1)">
+        <img class="preferential-img" src="../image/优惠券--48_01.png" alt="">
+        优惠卷
+        <span v-if="coupons_1.result == '0' && sum>coupons3.coupons_conditions && coupons2 ==''" class="float-right my-red">有可用的优惠卷</span>
+        <span v-if="coupons_1.result == '6666' || sum<coupons3.coupons_conditions && coupons2 ==''" class="float-right">暂无可用的优惠卷</span>
+        <span class="float-right my-red">{{ coupons2 }}</span>
+    </h5>
+    <div class="shopping-cart-footer">
+        <div style="font-size: .14rem;line-height: .47rem;float: left;width: 1.45rem;height: .47rem">
+            <div v-if="coupons2 !== ''">
+                <s class="my-red">&yen;{{ sum }}</s>
+                优惠{{ sum_j }}元
+            </div>
+        </div>
+        <div class="shopping-cart-total">
+            合计：
+            <span class="my-red">&yen;{{ sum - sum_j | fixed}}免费运</span>
+        </div>
+        <div class="btn-3 btn-red" id="add-order">
+            结算
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/payment-details.js"></script>
+<script>
+    document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px';
+    window.onresize=function(){
+        document.documentElement.style.fontSize=100*document.documentElement.clientWidth/375+'px'
+    };
+</script>
+</body>
+</html>
