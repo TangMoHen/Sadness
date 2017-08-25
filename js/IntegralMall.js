@@ -7,11 +7,11 @@ window.onload=function(){
 
     var user = JSON.parse(sessionStorage.getItem("user"));
     var user_id = "";
-    if(user !== null ){
-       user_id = user.date.user_id;
-    }else{
-        alert("请登录")
-    }
+    // if(user !== null ){
+    //    user_id = user.date.user_id;
+    // }else{
+    //     alert("请登录")
+    // }
     var user = JSON.parse(sessionStorage.getItem("user"));
     if (user !== null){
         var userId=user.date.user_id;
