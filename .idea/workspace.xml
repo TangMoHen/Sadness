@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3e18320-fb28-4769-84d6-5a9bbf7c5711" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/IntegralMall.js" afterPath="$PROJECT_DIR$/js/IntegralMall.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -36,12 +35,12 @@
       <file leaf-file-name="IntegralMall.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/IntegralMall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="276">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="19" selection-end-column="8" />
               <folding>
-                <marker date="1503625087126" expanded="true" signature="2117:2481" ph="..." />
-                <marker date="1503625087126" expanded="true" signature="2197:2466" ph="..." />
-                <marker date="1503625087126" expanded="true" signature="2339:2451" ph="..." />
+                <marker date="1503625186804" expanded="true" signature="2135:2499" ph="..." />
+                <marker date="1503625186804" expanded="true" signature="2215:2484" ph="..." />
+                <marker date="1503625186804" expanded="true" signature="2357:2469" ph="..." />
               </folding>
             </state>
           </provider>
@@ -360,12 +359,12 @@
       <workItem from="1503364462124" duration="45000" />
       <workItem from="1503480163110" duration="148000" />
       <workItem from="1503622675926" duration="1970000" />
-      <workItem from="1503625048399" duration="47000" />
+      <workItem from="1503625048399" duration="142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="411976000" />
+    <option name="totallyTimeSpent" value="412071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1370" height="744" extended-state="0" />
@@ -759,12 +758,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/IntegralMall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        <state relative-caret-position="276">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="19" selection-end-column="8" />
           <folding>
-            <marker date="1503625087126" expanded="true" signature="2117:2481" ph="..." />
-            <marker date="1503625087126" expanded="true" signature="2197:2466" ph="..." />
-            <marker date="1503625087126" expanded="true" signature="2339:2451" ph="..." />
+            <marker date="1503625186804" expanded="true" signature="2135:2499" ph="..." />
+            <marker date="1503625186804" expanded="true" signature="2215:2484" ph="..." />
+            <marker date="1503625186804" expanded="true" signature="2357:2469" ph="..." />
           </folding>
         </state>
       </provider>

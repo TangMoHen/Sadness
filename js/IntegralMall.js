@@ -12,12 +12,12 @@ window.onload=function(){
     // }else{
     //     alert("请登录")
     // }
-    var user = JSON.parse(sessionStorage.getItem("user"));
-    if (user !== null){
-        var userId=user.date.user_id;
-    }else{
-        window.location.href='./userlogin/index1.html'
-    }
+    // var user = JSON.parse(sessionStorage.getItem("user"));
+    // if (user !== null){
+    //     var userId=user.date.user_id;
+    // }else{
+    //     window.location.href='./userlogin/index1.html'
+    // }
 
 
     // function mall(){
